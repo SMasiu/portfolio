@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Portfolio",
-  "author": "smasiu",
+  "author": "Szymon Mśko (smasiu)",
   "keywords": [
-    "gatsby"
+    "portfolio"
   ],
   "scripts": {
     "develop": "gatsby develop",
@@ -28,5 +28,10 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.1.0",
+    "@types/styled-components": "^5.1.7",
+    "gatsby-plugin-root-import": "^2.0.6"
   }
 }
