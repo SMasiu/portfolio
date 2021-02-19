@@ -16,7 +16,7 @@ export const fontSizeTheme: FontSizeTheme = {
 }
 
 export const fontFamilyTheme: FontFamilyTheme = {
-  primary: `'Montserrat', sans-serif`
+  primary: `'Comfortaa', sans-serif`
 }
 
 export const theme: Theme = {

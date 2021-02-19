@@ -27,6 +27,13 @@ module.exports = {
         '@styles': path.join(__dirname, 'src/styles'),
         '@components': path.join(__dirname, 'src/components')
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Comfortaa\:300,400,700`],
+        display: 'swap'
+      }
     }
   ]
 }
