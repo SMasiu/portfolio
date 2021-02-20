@@ -7,10 +7,11 @@ import {
   NavList,
   SocialLink,
   SocialWrapper,
-  SocialIcon,
   HeaderContent,
   Address,
-  Email
+  Email,
+  LinkedInIcon,
+  GithubIcon
 } from './header.style'
 
 interface NavigationOption {
@@ -50,10 +51,10 @@ export const Header = () => (
           <Email href="mailto:szymon.masko32@gmail.com">szymon.masko32@gmail.com</Email>
         </Address>
         <SocialLink to="">
-          <SocialIcon src="linkedin.svg"></SocialIcon>
+          <LinkedInIcon />
         </SocialLink>
         <SocialLink to="">
-          <SocialIcon src="github.svg"></SocialIcon>
+          <GithubIcon />
         </SocialLink>
       </SocialWrapper>
     </HeaderContent>

@@ -161,7 +161,7 @@ export const DeviceTextRow = styled.div`
 
 export const SliderDotsWrapper = styled.section`
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   display: flex;
   transform: translateX(-50%);
@@ -214,7 +214,7 @@ export const PreviousButton = styled(ArrowLeft)`
 export const PageCounter = styled.section`
   position: absolute;
   right: 25px;
-  bottom: 25px;
+  bottom: 18px;
 `
 
 export const PageCounterContent = styled.section`
@@ -244,4 +244,19 @@ export const PageOf = styled.p`
   position: absolute;
   top: 0;
   right: 0;
+`
+
+export const CopyRight = styled.p`
+  position: absolute;
+  bottom: 35px;
+  left: 25px;
+  font-size: 13px;
+  letter-spacing: 2px;
+`
+
+export const ScrollWrapper = styled.section`
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 `

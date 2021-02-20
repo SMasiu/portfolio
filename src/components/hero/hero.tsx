@@ -1,6 +1,8 @@
 import { Button } from '@components/button/button'
+import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
 import {
+  CopyRight,
   Device,
   DevicePerson,
   DeviceReviews,
@@ -34,6 +36,7 @@ import {
   ReviewProfile,
   ReviewStar,
   ReviewStarsWrapper,
+  ScrollWrapper,
   SliderDot,
   SliderDotsWrapper,
   SliderDotWrapper
@@ -100,6 +103,10 @@ export const Hero = () => {
           <PageOf>/04</PageOf>
         </PageCounterContent>
       </PageCounter>
+      <CopyRight>&copy; Szymon Maśko 2021</CopyRight>
+      <ScrollWrapper>
+        <Scroll />
+      </ScrollWrapper>
       <HeroContent>
         <HeroAboutArticle>
           <HeroHeader>

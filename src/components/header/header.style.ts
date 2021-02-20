@@ -1,6 +1,8 @@
 import { colorTheme } from '@styles/theme'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import LinkedIn from '@icons/linked-in.svg'
+import Github from '@icons/github.svg'
 
 export const HeaderWrapper = styled.header`
   position: fixed;
@@ -45,8 +47,16 @@ export const SocialLink = styled(Link)`
   padding: 25px 10px;
 `
 
-export const SocialIcon = styled.img`
+export const SocialIcon = css`
   width: 20px;
+`
+
+export const LinkedInIcon = styled(LinkedIn)`
+  ${SocialIcon}
+`
+
+export const GithubIcon = styled(Github)`
+  ${SocialIcon}
 `
 
 export const Address = styled.address``
