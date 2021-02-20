@@ -4,17 +4,22 @@ import styled from 'styled-components'
 
 export const HeaderWrapper = styled.header`
   position: fixed;
+  z-index: 2000;
   top: 0;
   left: 0;
   width: 100%;
+  font-weight: 300;
+  letter-spacing: 2px;
 `
 
-export const Nav = styled.nav`
-  max-width: 1800px;
-  margin: auto;
+export const HeaderContent = styled.section`
   display: flex;
-  justify-content: flex-end;
+  margin: auto;
+  max-width: 1800px;
+  justify-content: space-between;
 `
+
+export const Nav = styled.nav``
 
 export const NavList = styled.ul`
   display: flex;
@@ -28,4 +33,28 @@ export const ListItem = styled.li`
 export const ListLink = styled(Link)`
   color: ${colorTheme.secondary200};
   text-decoration: none;
+`
+
+export const SocialWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+`
+
+export const SocialLink = styled(Link)`
+  display: block;
+  padding: 25px 10px;
+`
+
+export const SocialIcon = styled.img`
+  width: 20px;
+`
+
+export const Address = styled.address``
+
+export const Email = styled.a`
+  display: block;
+  padding: 35px 25px;
+  color: ${colorTheme.secondary200};
+  text-decoration: none;
+  font-style: normal;
 `

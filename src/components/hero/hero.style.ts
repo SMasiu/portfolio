@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components'
+import ArrowLeft from '@icons/arrow-left.svg'
+import ArrowRight from '@icons/arrow-right.svg'
 
 export const HeroSection = styled.section`
   width: 100%;
@@ -6,9 +8,21 @@ export const HeroSection = styled.section`
   min-height: 800px;
   background: rgb(232, 203, 192);
   background: linear-gradient(135deg, rgba(232, 203, 192, 1) 0%, rgba(99, 111, 164, 1) 100%);
+  position: relative;
+`
 
-  /* background: rgb(190, 147, 197);
-  background: linear-gradient(270deg, rgba(190, 147, 197, 1) 0%, rgba(123, 198, 204, 1) 100%); */
+export const HeroWatermark = styled.div`
+  position: absolute;
+  top: 72.5%;
+  left: 47.5%;
+  transform: translate(-50%, -50%);
+  font-size: 30vh;
+  opacity: 0.1;
+  background-blend-mode: soft-light;
+`
+
+export const HeroWatermarkText = styled.p`
+  line-height: 150%;
 `
 
 export const HeroContent = styled.section`
@@ -16,11 +30,13 @@ export const HeroContent = styled.section`
   height: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+  position: relative;
 `
 
 export const HeroAboutArticle = styled.article`
-  padding-top: 40%;
+  padding: 50px;
 `
 
 export const HeroHeader = styled.header``
@@ -40,7 +56,8 @@ export const HeroSubTitle = styled.h2`
 `
 
 export const HeroProductSection = styled.section`
-  padding-top: 30%;
+  margin-top: -100px;
+  margin-left: 100px;
 `
 
 export const Device = styled.section`
@@ -140,4 +157,91 @@ export const DeviceTextRow = styled.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 400px;
+`
+
+export const SliderDotsWrapper = styled.section`
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+`
+
+export const SliderDotWrapper = styled.span`
+  display: block;
+  border-radius: 50%;
+  padding: 15px;
+`
+
+export const SliderDot = styled.span`
+  display: block;
+  border: 2px solid #444;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+`
+
+export const PreviousWrapper = styled.section`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const NextWrapper = styled.section`
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const NextButton = styled(ArrowRight)`
+  width: 50px;
+`
+
+export const PreviousButton = styled(ArrowLeft)`
+  width: 50px;
+`
+
+export const PageCounter = styled.section`
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+`
+
+export const PageCounterContent = styled.section`
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 1;
+  font-weight: 300;
+`
+
+export const PageCurrent = styled.section`
+  display: flex;
+  align-items: flex-end;
+`
+
+export const PageName = styled.p`
+  margin-right: 5px;
+  margin-bottom: 17px;
+`
+
+export const PageCurrentIndex = styled.p`
+  padding: 15px 5px 0 0;
+  font-size: 75px;
+`
+
+export const PageOf = styled.p`
+  position: absolute;
+  top: 0;
+  right: 0;
 `

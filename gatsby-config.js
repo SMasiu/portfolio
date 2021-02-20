@@ -25,7 +25,8 @@ module.exports = {
       options: {
         '@pages': path.join(__dirname, 'src/pages'),
         '@styles': path.join(__dirname, 'src/styles'),
-        '@components': path.join(__dirname, 'src/components')
+        '@components': path.join(__dirname, 'src/components'),
+        '@icons': path.join(__dirname, 'src/icons')
       }
     },
     {
@@ -33,6 +34,14 @@ module.exports = {
       options: {
         fonts: [`Comfortaa\:300,400,700`],
         display: 'swap'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/
+        }
       }
     }
   ]

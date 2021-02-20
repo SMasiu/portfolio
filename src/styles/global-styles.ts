@@ -13,4 +13,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${colorTheme.secondary100};
     font-family: ${fontFamilyTheme.primary};
   }
+
+  svg {
+    display: block;
+    width: 100%;
+    fill: ${colorTheme.secondary100};
+  }
 `

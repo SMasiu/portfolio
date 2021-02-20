@@ -6,8 +6,10 @@
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/styles/*"],
       "@pages/*": ["./src/pages/*"],
-      "@utilities/*": ["./src/Utilities/*"]
+      "@icons/*": ["./src/icons/*"],
+      "@utilities/*": ["./src/utilities/*"]
     }
   },
+  "include": ["./src/**/*", "custom.d.ts"],
   "exclude": ["node_modules", "build"]
 }

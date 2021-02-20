@@ -16,12 +16,27 @@ import {
   HeroSection,
   HeroSubTitle,
   HeroTitle,
+  HeroWatermark,
+  HeroWatermarkText,
+  NextButton,
+  NextWrapper,
+  PageCounter,
+  PageCounterContent,
+  PageCurrent,
+  PageCurrentIndex,
+  PageName,
+  PageOf,
+  PreviousButton,
+  PreviousWrapper,
   Review,
   ReviewFakeTextWrapper,
   ReviewHeader,
   ReviewProfile,
   ReviewStar,
-  ReviewStarsWrapper
+  ReviewStarsWrapper,
+  SliderDot,
+  SliderDotsWrapper,
+  SliderDotWrapper
 } from './hero.style'
 
 const reviews = [
@@ -53,6 +68,38 @@ export const Hero = () => {
 
   return (
     <HeroSection>
+      <PreviousWrapper>
+        <PreviousButton />
+      </PreviousWrapper>
+      <NextWrapper>
+        <NextButton />
+      </NextWrapper>
+      <HeroWatermark>
+        <HeroWatermarkText>Web Dev</HeroWatermarkText>
+      </HeroWatermark>
+      <SliderDotsWrapper>
+        <SliderDotWrapper>
+          <SliderDot></SliderDot>
+        </SliderDotWrapper>
+        <SliderDotWrapper>
+          <SliderDot></SliderDot>
+        </SliderDotWrapper>
+        <SliderDotWrapper>
+          <SliderDot></SliderDot>
+        </SliderDotWrapper>
+        <SliderDotWrapper>
+          <SliderDot></SliderDot>
+        </SliderDotWrapper>
+      </SliderDotsWrapper>
+      <PageCounter>
+        <PageCounterContent>
+          <PageCurrent>
+            <PageName>Home - </PageName>
+            <PageCurrentIndex>01</PageCurrentIndex>
+          </PageCurrent>
+          <PageOf>/04</PageOf>
+        </PageCounterContent>
+      </PageCounter>
       <HeroContent>
         <HeroAboutArticle>
           <HeroHeader>
