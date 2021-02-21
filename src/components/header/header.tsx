@@ -39,8 +39,8 @@ export const Header = () => (
     <HeaderContent>
       <Nav>
         <NavList>
-          {navigationOptions.map(({ name, link }) => (
-            <ListItem>
+          {navigationOptions.map(({ name, link }, i) => (
+            <ListItem key={i}>
               <ListLink to={link}>{name}</ListLink>
             </ListItem>
           ))}

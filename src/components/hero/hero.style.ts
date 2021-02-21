@@ -1,14 +1,9 @@
 import styled, { css } from 'styled-components'
-import ArrowLeft from '@icons/arrow-left.svg'
-import ArrowRight from '@icons/arrow-right.svg'
 
 export const HeroSection = styled.section`
+  position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 800px;
-  background: rgb(232, 203, 192);
-  background: linear-gradient(135deg, rgba(232, 203, 192, 1) 0%, rgba(99, 111, 164, 1) 100%);
-  position: relative;
 `
 
 export const HeroWatermark = styled.div`
@@ -157,106 +152,4 @@ export const DeviceTextRow = styled.div`
   display: flex;
   flex-wrap: wrap;
   max-width: 400px;
-`
-
-export const SliderDotsWrapper = styled.section`
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  display: flex;
-  transform: translateX(-50%);
-`
-
-export const SliderDotWrapper = styled.span`
-  display: block;
-  border-radius: 50%;
-  padding: 15px;
-`
-
-export const SliderDot = styled.span`
-  display: block;
-  border: 2px solid #444;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-`
-
-export const PreviousWrapper = styled.section`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-export const NextWrapper = styled.section`
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-export const NextButton = styled(ArrowRight)`
-  width: 50px;
-`
-
-export const PreviousButton = styled(ArrowLeft)`
-  width: 50px;
-`
-
-export const PageCounter = styled.section`
-  position: absolute;
-  right: 25px;
-  bottom: 18px;
-`
-
-export const PageCounterContent = styled.section`
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 1;
-  font-weight: 300;
-`
-
-export const PageCurrent = styled.section`
-  display: flex;
-  align-items: flex-end;
-`
-
-export const PageName = styled.p`
-  margin-right: 5px;
-  margin-bottom: 17px;
-`
-
-export const PageCurrentIndex = styled.p`
-  padding: 15px 5px 0 0;
-  font-size: 75px;
-`
-
-export const PageOf = styled.p`
-  position: absolute;
-  top: 0;
-  right: 0;
-`
-
-export const CopyRight = styled.p`
-  position: absolute;
-  bottom: 35px;
-  left: 25px;
-  font-size: 13px;
-  letter-spacing: 2px;
-`
-
-export const ScrollWrapper = styled.section`
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
 `

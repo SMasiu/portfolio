@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Layout } from '@components/layout/layout'
 import { SEO } from '@components/seo/seo'
-import { Hero } from '@components/hero/hero'
+import { PageSlider } from '@components/page-slider/page-slider'
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero />
+      <PageSlider />
     </Layout>
   )
 }

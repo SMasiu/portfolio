@@ -1,8 +1,6 @@
 import { Button } from '@components/button/button'
-import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
 import {
-  CopyRight,
   Device,
   DevicePerson,
   DeviceReviews,
@@ -20,26 +18,12 @@ import {
   HeroTitle,
   HeroWatermark,
   HeroWatermarkText,
-  NextButton,
-  NextWrapper,
-  PageCounter,
-  PageCounterContent,
-  PageCurrent,
-  PageCurrentIndex,
-  PageName,
-  PageOf,
-  PreviousButton,
-  PreviousWrapper,
   Review,
   ReviewFakeTextWrapper,
   ReviewHeader,
   ReviewProfile,
   ReviewStar,
-  ReviewStarsWrapper,
-  ScrollWrapper,
-  SliderDot,
-  SliderDotsWrapper,
-  SliderDotWrapper
+  ReviewStarsWrapper
 } from './hero.style'
 
 const reviews = [
@@ -71,42 +55,9 @@ export const Hero = () => {
 
   return (
     <HeroSection>
-      <PreviousWrapper>
-        <PreviousButton />
-      </PreviousWrapper>
-      <NextWrapper>
-        <NextButton />
-      </NextWrapper>
       <HeroWatermark>
         <HeroWatermarkText>Web Dev</HeroWatermarkText>
       </HeroWatermark>
-      <SliderDotsWrapper>
-        <SliderDotWrapper>
-          <SliderDot></SliderDot>
-        </SliderDotWrapper>
-        <SliderDotWrapper>
-          <SliderDot></SliderDot>
-        </SliderDotWrapper>
-        <SliderDotWrapper>
-          <SliderDot></SliderDot>
-        </SliderDotWrapper>
-        <SliderDotWrapper>
-          <SliderDot></SliderDot>
-        </SliderDotWrapper>
-      </SliderDotsWrapper>
-      <PageCounter>
-        <PageCounterContent>
-          <PageCurrent>
-            <PageName>Home - </PageName>
-            <PageCurrentIndex>01</PageCurrentIndex>
-          </PageCurrent>
-          <PageOf>/04</PageOf>
-        </PageCounterContent>
-      </PageCounter>
-      <CopyRight>&copy; Szymon Maśko 2021</CopyRight>
-      <ScrollWrapper>
-        <Scroll />
-      </ScrollWrapper>
       <HeroContent>
         <HeroAboutArticle>
           <HeroHeader>
