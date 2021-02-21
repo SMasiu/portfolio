@@ -14,9 +14,20 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${fontFamilyTheme.primary};
   }
 
+  button {
+    background-color: ${colorTheme.primary100};
+    color: ${colorTheme.secondary100};
+    font-family: ${fontFamilyTheme.primary};
+  }
+
   svg {
     display: block;
     width: 100%;
     fill: ${colorTheme.secondary100};
+  }
+
+  .about-illustration {
+    opacity: 0.2;
+    mix-blend-mode: soft-light;
   }
 `

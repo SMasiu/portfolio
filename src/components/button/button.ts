@@ -8,6 +8,8 @@ export const Button = styled.button`
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 1px;
 
   &:focus {
     outline: none;

@@ -37,17 +37,21 @@ export const HeroAboutArticle = styled.article`
 export const HeroHeader = styled.header``
 
 export const HeroTitle = styled.h1`
+  font-weight: 300;
+  letter-spacing: 2px;
   font-size: 50px;
+`
+
+export const HeroSubTitle = styled.h2`
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 26px;
 `
 
 export const HeroAbout = styled.p`
   max-width: 600px;
   margin-top: 25px;
   margin-bottom: 10px;
-`
-
-export const HeroSubTitle = styled.h2`
-  font-size: 26px;
 `
 
 export const HeroProductSection = styled.section`
