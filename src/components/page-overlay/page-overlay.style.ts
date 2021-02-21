@@ -51,14 +51,16 @@ export const PreviousButton = styled(ArrowLeft)`
 export const OverlayFooter = styled.footer`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: baseline;
+  align-items: flex-end;
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 0 25px 10px;
+  padding: 0 35px 10px;
 `
 
-export const CopyRight = styled.section``
+export const CopyRight = styled.section`
+  margin-bottom: 20px;
+`
 
 export const CopyRightText = styled.p`
   font-size: 13px;
@@ -67,6 +69,7 @@ export const CopyRightText = styled.p`
 
 export const SliderLegendWrapper = styled.section`
   justify-self: center;
+  margin-bottom: 22px;
 `
 
 export const PageCounterWrapper = styled.section`
