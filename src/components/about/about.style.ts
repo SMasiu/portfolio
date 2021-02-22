@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 export const AboutWrapper = styled.section`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `
 
 export const AboutContent = styled.section`

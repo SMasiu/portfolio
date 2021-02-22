@@ -1,6 +1,5 @@
 import { PageCounter } from '@components/page-counter/page-counter'
 import { Scroll } from '@components/scroll/scroll'
-import { SliderLegend } from '@components/slider-legend/slider-legend'
 import * as React from 'react'
 import {
   CopyRight,
@@ -13,7 +12,6 @@ import {
   PageOverlayWrapper,
   PreviousButton,
   PreviousWrapper,
-  SliderLegendWrapper,
   ScrollWrapper
 } from './page-overlay.style'
 
@@ -36,10 +34,6 @@ export const PageOverlay = () => (
         <CopyRight>
           <CopyRightText>&copy; Szymon Maśko 2021</CopyRightText>
         </CopyRight>
-
-        <SliderLegendWrapper>
-          <SliderLegend />
-        </SliderLegendWrapper>
 
         <PageCounterWrapper>
           <PageCounter />

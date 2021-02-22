@@ -135,7 +135,7 @@ export const About = () => (
           </TechStackLayers>
           <TechStackOutputLayer>
             <TechStackItem>
-              <TechStackLogo src="/tech-stack/js.png"></TechStackLogo>
+              <TechStackLogo src="/web-dev.svg"></TechStackLogo>
             </TechStackItem>
           </TechStackOutputLayer>
         </TechStackNeuron>
