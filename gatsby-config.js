@@ -26,7 +26,9 @@ module.exports = {
         '@pages': path.join(__dirname, 'src/pages'),
         '@styles': path.join(__dirname, 'src/styles'),
         '@components': path.join(__dirname, 'src/components'),
-        '@icons': path.join(__dirname, 'src/icons')
+        '@icons': path.join(__dirname, 'src/icons'),
+        '@types': path.join(__dirname, 'src/types'),
+        '@common': path.join(__dirname, 'src/common')
       }
     },
     {

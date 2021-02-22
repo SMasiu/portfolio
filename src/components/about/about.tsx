@@ -19,77 +19,78 @@ import {
   TechStackOutputLayer
 } from './about.style'
 import AboutIllustration from '@icons/about.svg'
+import { techStackItems } from '@common/tech-stack'
 
 const techStack = [
   [
     {
-      logo: '/tech-stack/js.png',
+      ...techStackItems.js,
       lines: [<Line w="94px" />, <Line w="222px" r={65} />]
     },
     {
-      logo: '/tech-stack/ts.png',
+      ...techStackItems.ts,
       lines: [<Line w="137px" r={47} />, <Line w="222px" r={65} />]
     },
     {
-      logo: '/tech-stack/node.png',
+      ...techStackItems.node,
       lines: [<Line w="137px" r={47} />, <Line w="312px" r={72.7} />]
     },
     {
-      logo: '/tech-stack/nest.svg',
+      ...techStackItems.nest,
       lines: [<Line w="165px" r={65} />]
     }
   ],
   [
     {
-      logo: '/tech-stack/html.png',
+      ...techStackItems.html,
       lines: [<Line w="137px" r={-47} />, <Line w="222px" r={65} />]
     },
     {
-      logo: '/tech-stack/css.png',
+      ...techStackItems.css,
       lines: [<Line w="94px" />, <Line w="137px" r={-47} />]
     },
     {
-      logo: '/tech-stack/angular.png',
+      ...techStackItems.angular,
       lines: [<Line w="137px" r={-47} />, <Line w="137px" r={47} />]
     },
     {
-      logo: '/tech-stack/react.png',
+      ...techStackItems.react,
       lines: [<Line w="86px" r={35.8} />]
     }
   ],
   [
     {
-      logo: '/tech-stack/graphql.png',
+      ...techStackItems.graphql,
       lines: [<Line w="137px" r={-47} />, <Line w="137px" r={47} />]
     },
     {
-      logo: '/tech-stack/gatsby.png',
+      ...techStackItems.gatsby,
       lines: [<Line w="94px" />, <Line w="137px" r={47} />]
     },
     {
-      logo: '/tech-stack/postgresql.png',
+      ...techStackItems.postgresql,
       lines: [<Line w="94px" />, <Line w="137px" r={47} />]
     },
     {
-      logo: '/tech-stack/mongodb.png',
+      ...techStackItems.mongodb,
       lines: [<Line w="86px" r={-35.8} />]
     }
   ],
   [
     {
-      logo: '/tech-stack/python.webp',
+      ...techStackItems.python,
       lines: [<Line w="94px" />]
     },
     {
-      logo: '/tech-stack/docker.png',
+      ...techStackItems.docker,
       lines: [<Line w="94px" />, <Line w="137px" r={-47} />]
     },
     {
-      logo: '/tech-stack/github.png',
+      ...techStackItems.github,
       lines: [<Line w="94px" />]
     },
     {
-      logo: '/tech-stack/npm.png',
+      ...techStackItems.npm,
       lines: [<Line w="165px" r={-65} />]
     }
   ]

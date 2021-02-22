@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const HeroSection = styled.section`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `
 
 export const HeroWatermark = styled.div`
