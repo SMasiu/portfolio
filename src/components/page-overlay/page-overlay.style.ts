@@ -70,10 +70,3 @@ export const CopyRightText = styled.p`
 export const PageCounterWrapper = styled.section`
   justify-self: flex-end;
 `
-
-export const ScrollWrapper = styled.section`
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-`

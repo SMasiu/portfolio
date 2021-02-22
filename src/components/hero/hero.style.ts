@@ -157,3 +157,10 @@ export const DeviceTextRow = styled.div`
   flex-wrap: wrap;
   max-width: 400px;
 `
+
+export const ScrollWrapper = styled.section`
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+`

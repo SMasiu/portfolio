@@ -1,4 +1,5 @@
 import { Button } from '@components/button/button'
+import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
 import {
   Device,
@@ -23,7 +24,8 @@ import {
   ReviewHeader,
   ReviewProfile,
   ReviewStar,
-  ReviewStarsWrapper
+  ReviewStarsWrapper,
+  ScrollWrapper
 } from './hero.style'
 
 const reviews = [
@@ -58,6 +60,9 @@ export const Hero = () => {
       <HeroWatermark>
         <HeroWatermarkText>Web Dev</HeroWatermarkText>
       </HeroWatermark>
+      <ScrollWrapper>
+        <Scroll />
+      </ScrollWrapper>
       <HeroContent>
         <HeroAboutArticle>
           <HeroHeader>

@@ -1,8 +1,17 @@
 import { techStackItems } from '@common/tech-stack'
 import { ProjectType } from '../../types/project.type'
 import * as React from 'react'
-import { ProjectsWrapper } from './projects.style'
+import {
+  Code,
+  CodeDivider,
+  CodeInputs,
+  CodeLabel,
+  ProjectContent,
+  ProjectsFooter,
+  ProjectsWrapper
+} from './projects.style'
 import { Project } from '@components/project/project'
+import { Input } from '@components/input/input'
 
 const projects: ProjectType[] = [
   {
@@ -51,8 +60,22 @@ const projects: ProjectType[] = [
 
 export const Projects = () => (
   <ProjectsWrapper>
-    {projects.map((project, i) => (
-      <Project project={project} key={i} />
-    ))}
+    <ProjectContent>
+      {projects.map((project, i) => (
+        <Project project={project} key={i} />
+      ))}
+    </ProjectContent>
+    <ProjectsFooter>
+      <Code>
+        <CodeLabel>Code</CodeLabel>
+        <CodeInputs>
+          <Input />
+          <CodeDivider />
+          <Input />
+          <CodeDivider />
+          <Input />
+        </CodeInputs>
+      </Code>
+    </ProjectsFooter>
   </ProjectsWrapper>
 )

@@ -20,6 +20,11 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${fontFamilyTheme.primary};
   }
 
+  input {
+    color: ${colorTheme.secondary100};
+    font-family: ${fontFamilyTheme.primary};
+  }
+
   svg {
     display: block;
     width: 100%;

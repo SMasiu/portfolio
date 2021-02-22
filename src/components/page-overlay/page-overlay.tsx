@@ -1,5 +1,4 @@
 import { PageCounter } from '@components/page-counter/page-counter'
-import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
 import {
   CopyRight,
@@ -11,8 +10,7 @@ import {
   PageCounterWrapper,
   PageOverlayWrapper,
   PreviousButton,
-  PreviousWrapper,
-  ScrollWrapper
+  PreviousWrapper
 } from './page-overlay.style'
 
 export const PageOverlay = () => (
@@ -25,10 +23,6 @@ export const PageOverlay = () => (
       <NextWrapper>
         <NextButton />
       </NextWrapper>
-
-      <ScrollWrapper>
-        <Scroll />
-      </ScrollWrapper>
 
       <OverlayFooter>
         <CopyRight>
