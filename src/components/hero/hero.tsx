@@ -1,6 +1,7 @@
 import { Button } from '@components/button/button'
 import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
+import { useEffect } from 'react'
 import {
   Device,
   DevicePerson,

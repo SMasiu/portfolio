@@ -28,7 +28,8 @@ module.exports = {
         '@components': path.join(__dirname, 'src/components'),
         '@icons': path.join(__dirname, 'src/icons'),
         '@types': path.join(__dirname, 'src/types'),
-        '@common': path.join(__dirname, 'src/common')
+        '@common': path.join(__dirname, 'src/common'),
+        '@global-state': path.join(__dirname, 'src/global-state')
       }
     },
     {

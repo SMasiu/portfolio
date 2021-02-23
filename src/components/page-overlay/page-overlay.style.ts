@@ -24,6 +24,7 @@ export const changeSlideArrowWrapper = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 `
 
 export const PreviousWrapper = styled.section`

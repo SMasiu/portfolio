@@ -32,7 +32,7 @@ export const ListItem = styled.li`
   padding: 35px 25px;
 `
 
-export const ListLink = styled(Link)`
+export const ListLink = styled.p`
   color: ${colorTheme.secondary200};
   text-decoration: none;
 `

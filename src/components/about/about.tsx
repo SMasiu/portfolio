@@ -25,73 +25,73 @@ const techStack = [
   [
     {
       ...techStackItems.js,
-      lines: [<Line w="94px" />, <Line w="222px" r={65} />]
+      lines: [<Line w="94px" key={1} />, <Line w="222px" r={65} key={2} />]
     },
     {
       ...techStackItems.ts,
-      lines: [<Line w="137px" r={47} />, <Line w="222px" r={65} />]
+      lines: [<Line w="137px" r={47} key={1} />, <Line w="222px" r={65} key={2} />]
     },
     {
       ...techStackItems.node,
-      lines: [<Line w="137px" r={47} />, <Line w="312px" r={72.7} />]
+      lines: [<Line w="137px" r={47} key={1} />, <Line w="312px" r={72.7} key={2} />]
     },
     {
       ...techStackItems.nest,
-      lines: [<Line w="165px" r={65} />]
+      lines: [<Line w="165px" r={65} key={1} />]
     }
   ],
   [
     {
       ...techStackItems.html,
-      lines: [<Line w="137px" r={-47} />, <Line w="222px" r={65} />]
+      lines: [<Line w="137px" r={-47} key={1} />, <Line w="222px" r={65} key={2} />]
     },
     {
       ...techStackItems.css,
-      lines: [<Line w="94px" />, <Line w="137px" r={-47} />]
+      lines: [<Line w="94px" key={1} />, <Line w="137px" r={-47} key={2} />]
     },
     {
       ...techStackItems.angular,
-      lines: [<Line w="137px" r={-47} />, <Line w="137px" r={47} />]
+      lines: [<Line w="137px" r={-47} key={1} />, <Line w="137px" r={47} key={2} />]
     },
     {
       ...techStackItems.react,
-      lines: [<Line w="86px" r={35.8} />]
+      lines: [<Line w="86px" r={35.8} key={2} />]
     }
   ],
   [
     {
       ...techStackItems.graphql,
-      lines: [<Line w="137px" r={-47} />, <Line w="137px" r={47} />]
+      lines: [<Line w="137px" r={-47} key={1} />, <Line w="137px" r={47} key={2} />]
     },
     {
       ...techStackItems.gatsby,
-      lines: [<Line w="94px" />, <Line w="137px" r={47} />]
+      lines: [<Line w="94px" key={1} />, <Line w="137px" r={47} key={2} />]
     },
     {
       ...techStackItems.postgresql,
-      lines: [<Line w="94px" />, <Line w="137px" r={47} />]
+      lines: [<Line w="94px" key={1} />, <Line w="137px" r={47} key={2} />]
     },
     {
       ...techStackItems.mongodb,
-      lines: [<Line w="86px" r={-35.8} />]
+      lines: [<Line w="86px" r={-35.8} key={1} />]
     }
   ],
   [
     {
       ...techStackItems.python,
-      lines: [<Line w="94px" />]
+      lines: [<Line w="94px" key={1} />]
     },
     {
       ...techStackItems.docker,
-      lines: [<Line w="94px" />, <Line w="137px" r={-47} />]
+      lines: [<Line w="94px" key={1} />, <Line w="137px" r={-47} key={2} />]
     },
     {
       ...techStackItems.github,
-      lines: [<Line w="94px" />]
+      lines: [<Line w="94px" key={1} />]
     },
     {
       ...techStackItems.npm,
-      lines: [<Line w="165px" r={-65} />]
+      lines: [<Line w="165px" r={-65} key={1} />]
     }
   ]
 ]

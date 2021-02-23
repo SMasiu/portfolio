@@ -1,3 +1,4 @@
+import { slidesCount } from '@common/slider'
 import { PageCounter } from '@components/page-counter/page-counter'
 import * as React from 'react'
 import {
@@ -13,16 +14,24 @@ import {
   PreviousWrapper
 } from './page-overlay.style'
 
-export const PageOverlay = () => (
+export interface PageOverlayProps {
+  slide: number
+  onPageChange: (slide: number) => void
+}
+
+export const PageOverlay: React.FC<PageOverlayProps> = ({ slide, onPageChange }) => (
   <PageOverlayWrapper>
     <OverlayContent>
-      <PreviousWrapper>
-        <PreviousButton />
-      </PreviousWrapper>
-
-      <NextWrapper>
-        <NextButton />
-      </NextWrapper>
+      {slide !== 1 && (
+        <PreviousWrapper onClick={() => onPageChange(slide - 1)}>
+          <PreviousButton />
+        </PreviousWrapper>
+      )}
+      {slide !== slidesCount && (
+        <NextWrapper onClick={() => onPageChange(slide + 1)}>
+          <NextButton />
+        </NextWrapper>
+      )}
 
       <OverlayFooter>
         <CopyRight>

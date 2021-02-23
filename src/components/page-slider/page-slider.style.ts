@@ -12,5 +12,33 @@ export const PageSlides = styled.section`
   position: relative;
   width: 100%;
   height: 100%;
+`
+
+export const SlideContent = styled.section`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
+
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+export const HeroContent = styled(SlideContent)`
+  left: 0;
+`
+
+export const AboutContent = styled(SlideContent)`
+  left: 100%;
+`
+
+export const ProjectsContent = styled(SlideContent)`
+  left: 200%;
+`
+
+export const ContactWrapper = styled(SlideContent)`
+  left: 300%;
 `

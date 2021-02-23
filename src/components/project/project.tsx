@@ -56,7 +56,7 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => (
           <UsedTechStack>
             <ProjectContentHeading>Used technologies</ProjectContentHeading>
             {project.techStack.map(({ name, logo }, i) => (
-              <TechStackItem>
+              <TechStackItem key={i}>
                 <TechStackImg src={logo} />
                 <TechStackName>{name}</TechStackName>
               </TechStackItem>

@@ -8,7 +8,8 @@
       "@pages/*": ["./src/pages/*"],
       "@icons/*": ["./src/icons/*"],
       "@types/*": ["./src/types/*"],
-      "@common/*": ["./src/common/*"]
+      "@common/*": ["./src/common/*"],
+      "@global-state/*": ["./src/global-state/*"]
     }
   },
   "include": ["./src/**/*", "custom.d.ts"],

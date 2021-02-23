@@ -1,3 +1,5 @@
+import { useSliderState } from '@global-state/slider-store'
+import { SliderActions } from '../../types/global-state.type'
 import * as React from 'react'
 import {
   HeaderWrapper,
@@ -16,47 +18,49 @@ import {
 
 interface NavigationOption {
   name: string
-  link: string
+  slide: number
 }
 
 const navigationOptions: NavigationOption[] = [
-  {
-    name: 'Home',
-    link: '/'
-  },
-  {
-    name: 'About',
-    link: ''
-  },
-  {
-    name: 'Projects',
-    link: ''
-  }
+  { name: 'Home', slide: 1 },
+  { name: 'About', slide: 2 },
+  { name: 'Projects', slide: 3 },
+  { name: 'Contact', slide: 4 }
 ]
 
-export const Header = () => (
-  <HeaderWrapper>
-    <HeaderContent>
-      <Nav>
-        <NavList>
-          {navigationOptions.map(({ name, link }, i) => (
-            <ListItem key={i}>
-              <ListLink to={link}>{name}</ListLink>
-            </ListItem>
-          ))}
-        </NavList>
-      </Nav>
-      <SocialWrapper>
-        <Address>
-          <Email href="mailto:szymon.masko32@gmail.com">szymon.masko32@gmail.com</Email>
-        </Address>
-        <SocialLink to="">
-          <LinkedInIcon />
-        </SocialLink>
-        <SocialLink to="">
-          <GithubIcon />
-        </SocialLink>
-      </SocialWrapper>
-    </HeaderContent>
-  </HeaderWrapper>
-)
+export const Header = () => {
+  const { state, dispatch } = useSliderState()
+
+  const handleNavigationClick = (slide: number) => {
+    if (slide !== state.currentSlide) {
+      dispatch({ type: SliderActions.SET_SLIDE, payload: { currentSlide: slide } })
+    }
+  }
+
+  return (
+    <HeaderWrapper>
+      <HeaderContent>
+        <Nav>
+          <NavList>
+            {navigationOptions.map(({ name, slide }, i) => (
+              <ListItem key={i} onClick={() => handleNavigationClick(slide)}>
+                <ListLink>{name}</ListLink>
+              </ListItem>
+            ))}
+          </NavList>
+        </Nav>
+        <SocialWrapper>
+          <Address>
+            <Email href="mailto:szymon.masko32@gmail.com">szymon.masko32@gmail.com</Email>
+          </Address>
+          <SocialLink to="">
+            <LinkedInIcon />
+          </SocialLink>
+          <SocialLink to="">
+            <GithubIcon />
+          </SocialLink>
+        </SocialWrapper>
+      </HeaderContent>
+    </HeaderWrapper>
+  )
+}
