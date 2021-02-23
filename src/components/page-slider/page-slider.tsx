@@ -1,4 +1,5 @@
 import { About } from '@components/about/about'
+import { Contact } from '@components/contact/contact'
 import { Hero } from '@components/hero/hero'
 import { PageOverlay } from '@components/page-overlay/page-overlay'
 import { Projects } from '@components/projects/projects'
@@ -16,8 +17,11 @@ export const PageSlider = () => (
       {/* <SliderContent>
         <About />
       </SliderContent> */}
-      <SliderContent>
+      {/* <SliderContent>
         <Projects />
+      </SliderContent> */}
+      <SliderContent>
+        <Contact />
       </SliderContent>
     </PageSlides>
   </PageSliderWrapper>

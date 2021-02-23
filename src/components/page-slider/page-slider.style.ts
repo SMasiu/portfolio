@@ -12,5 +12,5 @@ export const PageSlides = styled.section`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 `
