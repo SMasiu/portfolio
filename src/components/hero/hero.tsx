@@ -1,7 +1,6 @@
 import { Button } from '@components/button/button'
 import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
-import { useEffect } from 'react'
 import {
   Device,
   DevicePerson,
@@ -28,6 +27,8 @@ import {
   ReviewStarsWrapper,
   ScrollWrapper
 } from './hero.style'
+import { useEffect } from 'react'
+import { throttle } from 'lodash'
 
 const reviews = [
   {
@@ -55,6 +56,13 @@ export const Hero = () => {
     }
     return images
   }
+
+  useEffect(() => {
+    window.addEventListener(
+      'wheel',
+      throttle((e) => console.log(e.deltaY), 100)
+    )
+  }, [])
 
   return (
     <HeroSection>
