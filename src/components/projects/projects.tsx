@@ -1,7 +1,7 @@
 import { techStackItems } from '@common/tech-stack'
 import { ProjectType } from '../../types/project.type'
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Code,
   CodeDivider,
@@ -15,7 +15,6 @@ import { Project } from '@components/project/project'
 import { Input } from '@components/input/input'
 import { useSliderState } from '@global-state/slider-store'
 import { useWheel } from '@hooks/use-wheel'
-import { SliderActions } from '../../types/global-state.type'
 import { handleWheel } from '@common/handle-wheel'
 
 const projects: ProjectType[] = [

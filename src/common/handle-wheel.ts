@@ -11,7 +11,7 @@ export const handleWheel = (
   setScrolledTicks: (num: number) => void,
   sliderWrapper: HTMLElement
 ) => (e: WheelEvent) => {
-  const { currentSlide } = state
+  const { currentSlide, preventSlide } = state
   if (state.currentSlide === slideIndex) {
     if (currentSlide !== slidesCount && scrollTicks <= -CHANGE_TICKS) {
       dispatch({ type: SliderActions.SET_SLIDE, payload: { currentSlide: slideIndex + 1 } })
@@ -20,13 +20,14 @@ export const handleWheel = (
     }
     if (
       !sliderWrapper ||
-      sliderWrapper.scrollTop + sliderWrapper.clientHeight === sliderWrapper.scrollHeight ||
-      sliderWrapper.scrollTop === 0
+      (sliderWrapper.scrollTop + sliderWrapper.clientHeight === sliderWrapper.scrollHeight &&
+        e.deltaY > 0) ||
+      (sliderWrapper.scrollTop === 0 && e.deltaY < 0)
     ) {
       const maxTicks = currentSlide === 1 ? 0 : CHANGE_TICKS
       const minTicks = currentSlide === slidesCount ? 0 : -CHANGE_TICKS
       const newScrollTicks = scrollTicks + (e.deltaY > 0 ? -1 : 1)
-      if (newScrollTicks >= minTicks && newScrollTicks <= maxTicks) {
+      if (!preventSlide && newScrollTicks >= minTicks && newScrollTicks <= maxTicks) {
         setScrolledTicks(newScrollTicks)
       }
     }

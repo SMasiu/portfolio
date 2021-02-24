@@ -3,7 +3,7 @@ import * as React from 'react'
 import { useContext, useReducer, createContext } from 'react'
 import { reducer } from './slider-reducer'
 
-const defaultState: SliderGlobalState = { currentSlide: 1 }
+const defaultState: SliderGlobalState = { currentSlide: 1, preventSlide: false }
 
 const Context = createContext<GlobalStore<SliderAction>>({ state: defaultState })
 

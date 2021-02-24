@@ -4,6 +4,10 @@ export const reducer = (state: SliderGlobalState, action: SliderAction): SliderG
   switch (action.type) {
     case SliderActions.SET_SLIDE:
       return { ...state, currentSlide: action.payload.currentSlide }
+    case SliderActions.PREVENT_SLIDE:
+      return { ...state, preventSlide: true }
+    case SliderActions.ENABLE_SLIDE:
+      return { ...state, preventSlide: false }
     default:
       return { ...state }
   }

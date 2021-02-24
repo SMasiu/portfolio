@@ -10,5 +10,5 @@ export const useWheel = (onWheel: (e: WheelEvent) => void) => {
 
   const handleScroll = throttle((e: WheelEvent) => {
     onWheel(e)
-  }, 100)
+  }, 50)
 }

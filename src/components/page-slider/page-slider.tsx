@@ -5,7 +5,7 @@ import { PageOverlay } from '@components/page-overlay/page-overlay'
 import { Projects } from '@components/projects/projects'
 import { SliderContent } from '@components/slider-content/slider-content'
 import * as React from 'react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   AboutContent,
   ContactWrapper,
@@ -21,6 +21,7 @@ import { SliderActions } from '../../types/global-state.type'
 
 export const PageSlider = () => {
   const { state, dispatch } = useSliderState()
+  const [lastState, setLastState] = useState(1)
   const currentSlide = state.currentSlide
 
   const heroContentRef = useRef()
@@ -29,24 +30,34 @@ export const PageSlider = () => {
   const contactContentRef = useRef()
 
   useEffect(() => {
-    slideTo(currentSlide)
+    if (currentSlide !== lastState) {
+      slideTo(currentSlide)
+      setLastState(currentSlide)
+    }
   })
 
   const slideTo = (slide: number) => {
-    const slides = [
-      heroContentRef.current,
-      aboutContentRef.current,
-      projectsContentRef.current,
-      contactContentRef.current
-    ]
+    if (!state.preventSlide) {
+      dispatch({ type: SliderActions.PREVENT_SLIDE })
+      const slides = [
+        heroContentRef.current,
+        aboutContentRef.current,
+        projectsContentRef.current,
+        contactContentRef.current
+      ]
 
-    slides.forEach((id) => {
-      gsap.to(id, {
-        x: `${-100 * (slide - 1)}%`,
-        duration: 1,
-        ease: 'power2.inOut'
+      slides.forEach((id) => {
+        gsap.to(id, {
+          x: `${-100 * (slide - 1)}%`,
+          duration: 1,
+          ease: 'power2.inOut'
+        })
       })
-    })
+
+      setTimeout(() => {
+        dispatch({ type: SliderActions.ENABLE_SLIDE })
+      }, 1000)
+    }
   }
 
   const handleChangeSlide = (slide: number) => {
