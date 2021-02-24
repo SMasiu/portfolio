@@ -27,8 +27,11 @@ import {
   ReviewStarsWrapper,
   ScrollWrapper
 } from './hero.style'
-import { useEffect } from 'react'
-import { throttle } from 'lodash'
+import { useState, forwardRef } from 'react'
+import { useSliderState } from '@global-state/slider-store'
+import { SliderActions } from '../../types/global-state.type'
+import { useWheel } from '@hooks/use-wheel'
+import { handleWheel } from '@common/handle-wheel'
 
 const reviews = [
   {
@@ -48,7 +51,16 @@ const reviews = [
   }
 ]
 
-export const Hero = () => {
+export interface HeroProps {
+  sliderWrapper: HTMLElement
+}
+
+export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
+  const [scrollTicks, setScrolledTicks] = useState(0)
+  const { state, dispatch } = useSliderState()
+
+  useWheel(handleWheel(1, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+
   const generateStars = (rate: number) => {
     const images: string[] = []
     for (let i = 1; i <= 5; i++) {
@@ -56,13 +68,6 @@ export const Hero = () => {
     }
     return images
   }
-
-  useEffect(() => {
-    window.addEventListener(
-      'wheel',
-      throttle((e) => console.log(e.deltaY), 100)
-    )
-  }, [])
 
   return (
     <HeroSection>

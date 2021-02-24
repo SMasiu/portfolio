@@ -1,6 +1,7 @@
 import { techStackItems } from '@common/tech-stack'
 import { ProjectType } from '../../types/project.type'
 import * as React from 'react'
+import { useState } from 'react'
 import {
   Code,
   CodeDivider,
@@ -12,6 +13,10 @@ import {
 } from './projects.style'
 import { Project } from '@components/project/project'
 import { Input } from '@components/input/input'
+import { useSliderState } from '@global-state/slider-store'
+import { useWheel } from '@hooks/use-wheel'
+import { SliderActions } from '../../types/global-state.type'
+import { handleWheel } from '@common/handle-wheel'
 
 const projects: ProjectType[] = [
   {
@@ -58,24 +63,35 @@ const projects: ProjectType[] = [
   }
 ]
 
-export const Projects = () => (
-  <ProjectsWrapper>
-    <ProjectContent>
-      {projects.map((project, i) => (
-        <Project project={project} key={i} />
-      ))}
-    </ProjectContent>
-    <ProjectsFooter>
-      <Code>
-        <CodeLabel>Code</CodeLabel>
-        <CodeInputs>
-          <Input />
-          <CodeDivider />
-          <Input />
-          <CodeDivider />
-          <Input />
-        </CodeInputs>
-      </Code>
-    </ProjectsFooter>
-  </ProjectsWrapper>
-)
+export interface ProjectsProps {
+  sliderWrapper: HTMLElement
+}
+
+export const Projects: React.FC<ProjectsProps> = ({ sliderWrapper }) => {
+  const [scrollTicks, setScrolledTicks] = useState(0)
+  const { state, dispatch } = useSliderState()
+
+  useWheel(handleWheel(3, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+
+  return (
+    <ProjectsWrapper>
+      <ProjectContent>
+        {projects.map((project, i) => (
+          <Project project={project} key={i} />
+        ))}
+      </ProjectContent>
+      <ProjectsFooter>
+        <Code>
+          <CodeLabel>Code</CodeLabel>
+          <CodeInputs>
+            <Input />
+            <CodeDivider />
+            <Input />
+            <CodeDivider />
+            <Input />
+          </CodeInputs>
+        </Code>
+      </ProjectsFooter>
+    </ProjectsWrapper>
+  )
+}
