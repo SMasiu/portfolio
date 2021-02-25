@@ -23,7 +23,6 @@ import AboutIllustration from '@icons/about.svg'
 import { techStackItems } from '@common/tech-stack'
 import { useSliderState } from '@global-state/slider-store'
 import { useWheel } from '@hooks/use-wheel'
-import { SliderActions } from '../../types/global-state.type'
 import { handleWheel } from '@common/handle-wheel'
 
 const techStack = [

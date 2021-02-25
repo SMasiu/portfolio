@@ -8,6 +8,8 @@ export const reducer = (state: SliderGlobalState, action: SliderAction): SliderG
       return { ...state, preventSlide: true }
     case SliderActions.ENABLE_SLIDE:
       return { ...state, preventSlide: false }
+    case SliderActions.SET_DISABLED:
+      return { ...state, disableSlide: action.payload.disableSlide }
     default:
       return { ...state }
   }

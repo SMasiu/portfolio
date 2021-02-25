@@ -1,4 +1,4 @@
-import { ColorTheme, FontFamilyTheme, FontSizeTheme, Theme } from './theme.type'
+import { ColorTheme, FontFamilyTheme, FontSizeTheme, MediaTheme, Theme } from './theme.type'
 
 export const colorTheme: ColorTheme = {
   primary100: '#fefefe',
@@ -19,8 +19,14 @@ export const fontFamilyTheme: FontFamilyTheme = {
   primary: `'Comfortaa', sans-serif`
 }
 
+export const mediaTheme: MediaTheme = {
+  sm: '1024px',
+  md: '1500px'
+}
+
 export const theme: Theme = {
   colors: colorTheme,
   fontSize: fontSizeTheme,
-  fontFamily: fontFamilyTheme
+  fontFamily: fontFamilyTheme,
+  media: mediaTheme
 }

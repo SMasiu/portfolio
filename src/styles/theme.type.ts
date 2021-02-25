@@ -17,8 +17,14 @@ export interface FontFamilyTheme {
   primary: string
 }
 
+export interface MediaTheme {
+  sm: string
+  md: string
+}
+
 export interface Theme {
   colors: ColorTheme
   fontSize: FontSizeTheme
   fontFamily: FontFamilyTheme
+  media: MediaTheme
 }
