@@ -1,6 +1,7 @@
 import { useSliderState } from '@global-state/slider-store'
 import { SliderActions } from '../../types/global-state.type'
 import * as React from 'react'
+import { useState } from 'react'
 import {
   HeaderWrapper,
   ListItem,
@@ -13,8 +14,10 @@ import {
   Address,
   Email,
   LinkedInIcon,
-  GithubIcon
+  GithubIcon,
+  HamburgerWrapper
 } from './header.style'
+import { Hamburger } from '@components/hamburger/hamburger'
 
 interface NavigationOption {
   name: string
@@ -30,6 +33,7 @@ const navigationOptions: NavigationOption[] = [
 
 export const Header = () => {
   const { state, dispatch } = useSliderState()
+  const [openNav, setOpenNav] = useState(false)
 
   const handleNavigationClick = (slide: number) => {
     if (slide !== state.currentSlide) {
@@ -40,7 +44,7 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <Nav>
+        <Nav open={openNav}>
           <NavList>
             {navigationOptions.map(({ name, slide }, i) => (
               <ListItem key={i} onClick={() => handleNavigationClick(slide)}>
@@ -60,6 +64,9 @@ export const Header = () => {
             <GithubIcon />
           </SocialLink>
         </SocialWrapper>
+        <HamburgerWrapper>
+          <Hamburger open={openNav} onClick={() => setOpenNav(!openNav)} />
+        </HamburgerWrapper>
       </HeaderContent>
     </HeaderWrapper>
   )

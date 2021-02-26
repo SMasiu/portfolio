@@ -24,10 +24,10 @@ export const PageSlider = () => {
   const [lastState, setLastState] = useState(1)
   const currentSlide = state.currentSlide
 
-  const heroContentRef = useRef()
-  const aboutContentRef = useRef()
-  const projectsContentRef = useRef()
-  const contactContentRef = useRef()
+  const heroContentElem: HTMLElement = document.querySelector('#hero-content')
+  const aboutContentElem: HTMLElement = document.querySelector('#about-content')
+  const projectsContentElem: HTMLElement = document.querySelector('#projects-content')
+  const contactContentElem: HTMLElement = document.querySelector('#contact-content')
 
   useEffect(() => {
     if (currentSlide !== lastState) {
@@ -39,12 +39,7 @@ export const PageSlider = () => {
   const slideTo = (slide: number) => {
     if (!state.preventSlide) {
       dispatch({ type: SliderActions.PREVENT_SLIDE })
-      const slides = [
-        heroContentRef.current,
-        aboutContentRef.current,
-        projectsContentRef.current,
-        contactContentRef.current
-      ]
+      const slides = [heroContentElem, aboutContentElem, projectsContentElem, contactContentElem]
 
       slides.forEach((id) => {
         gsap.to(id, {
@@ -72,24 +67,24 @@ export const PageSlider = () => {
     <PageSliderWrapper>
       <PageOverlay slide={currentSlide} onPageChange={handleChangeSlide} />
       <PageSlides>
-        <HeroContent ref={heroContentRef}>
+        <HeroContent id="hero-content">
           <SliderContent>
-            <Hero sliderWrapper={heroContentRef.current} />
+            <Hero sliderWrapper={heroContentElem} />
           </SliderContent>
         </HeroContent>
-        <AboutContent ref={aboutContentRef}>
+        <AboutContent id="about-content">
           <SliderContent>
-            <About sliderWrapper={aboutContentRef.current} />
+            <About sliderWrapper={aboutContentElem} />
           </SliderContent>
         </AboutContent>
-        <ProjectsContent ref={projectsContentRef}>
+        <ProjectsContent id="projects-content">
           <SliderContent>
-            <Projects sliderWrapper={projectsContentRef.current} />
+            <Projects sliderWrapper={projectsContentElem} />
           </SliderContent>
         </ProjectsContent>
-        <ContactWrapper ref={contactContentRef}>
+        <ContactWrapper id="contact-content">
           <SliderContent>
-            <Contact sliderWrapper={contactContentRef.current} />
+            <Contact sliderWrapper={contactContentElem} />
           </SliderContent>
         </ContactWrapper>
       </PageSlides>

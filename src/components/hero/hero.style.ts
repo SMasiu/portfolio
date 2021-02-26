@@ -1,9 +1,16 @@
+import { mediaTheme } from '@styles/theme'
 import styled, { css } from 'styled-components'
 
 export const HeroSection = styled.section`
   position: relative;
   width: 100%;
   height: 100%;
+  padding: 100px 0 150px;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    padding: 0;
+    min-height: 600px;
+  }
 `
 
 export const HeroWatermark = styled.div`
@@ -25,13 +32,28 @@ export const HeroContent = styled.section`
   height: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: 2fr 3fr;
   align-items: center;
   position: relative;
+  grid-template-columns: 1fr;
+  width: 90%;
+
+  @media (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media (min-width: ${mediaTheme.sm}) {
+    width: 100%;
+    grid-template-columns: 2fr 3fr;
+  }
 `
 
 export const HeroAboutArticle = styled.article`
-  padding: 50px;
+  margin: auto;
+  padding: 50px 0 100px;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    padding: 50px;
+  }
 `
 
 export const HeroHeader = styled.header``
@@ -55,54 +77,143 @@ export const HeroAbout = styled.p`
 `
 
 export const HeroProductSection = styled.section`
-  margin-top: -100px;
-  margin-left: 100px;
+  @media (min-width: ${mediaTheme.sm}) {
+    margin-left: 100px;
+    margin-top: -100px;
+  }
 `
 
 export const Device = styled.section`
-  width: 700px;
-  height: 400px;
+  width: 90%;
   position: relative;
+  margin: auto;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    width: 100%;
+    margin-left: -100px;
+    margin-top: 100px;
+    max-width: 700px;
+  }
 `
 
 export const Glass = styled.section`
   width: 100%;
-  height: 100%;
   display: inline-block;
   background: rgba(255, 255, 255, 0.15);
-  padding: 3em;
-  border-radius: 1em;
+  border-radius: 15px;
   position: relative;
-  z-index: 1;
   backdrop-filter: blur(1px);
   filter: blur(1px);
   background-clip: padding-box;
   box-shadow: 10px 10px 10px;
-  border: 7px solid #141414;
+  border: 3px solid #141414;
   z-index: 800;
+  padding-bottom: 50%;
+
+  @media (min-width: 475px) {
+    padding-bottom: 40%;
+  }
+
+  @media (min-width: ${mediaTheme.sm}) {
+    border-width: 7px;
+    padding-bottom: 0;
+    height: 350px;
+  }
+
+  @media (min-width: 1600px) {
+    height: 400px;
+  }
 `
 
 export const DevicePerson = styled.img`
   position: absolute;
-  top: 0;
   left: 0;
-  height: 100%;
-  transform: scaleX(-1) translate(100px, 100px);
+  height: auto;
+  transform: scaleX(-1) translate(5%, 35%);
+  width: 100%;
+  bottom: 25px;
+
+  @media (min-width: 475px) {
+    bottom: 0;
+    width: 50%;
+    transform: scaleX(-1) translate(10%, 20%);
+  }
+
+  @media (min-width: ${mediaTheme.sm}) {
+    height: 100%;
+    bottom: auto;
+    top: 0;
+    transform: scaleX(-1) translate(75px, 95px);
+    width: 100%;
+  }
+
+  @media (min-width: 1600px) {
+    transform: scaleX(-1) translate(100px, 100px);
+  }
 `
 
 export const DeviceReviews = styled.section`
   position: absolute;
-  top: 50%;
-  left: calc(100% - 95px);
   transform: translateY(-50%);
+  right: 20px;
+  display: none;
+  top: 130px;
+
+  @media (min-width: 475px) {
+    display: block;
+  }
+
+  @media (min-width: 475px) {
+    top: 175px;
+  }
+
+  @media (min-width: ${mediaTheme.sm}) {
+    top: calc(50% + 25px);
+  }
+
+  @media (min-width: 1600px) {
+    top: 50%;
+    right: auto;
+    left: calc(100% - 95px);
+  }
 `
 
 export const Review = styled.article`
-  margin: 25px 0;
-  padding: 15px;
-  border-radius: 15px;
+  padding: 10px 5px;
+  border-radius: 5px;
   background-color: #fff;
-  width: 300px;
+  margin: 5px;
+  width: 200px;
+
+  &:last-child {
+    display: none;
+  }
+
+  @media (min-width: 600px) {
+    width: 250px;
+
+    &:last-child {
+      display: block;
+    }
+  }
+
+  @media (min-width: 800px) {
+    width: 300px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  @media (min-width: ${mediaTheme.sm}) {
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+    width: 250px;
+  }
+
+  @media (min-width: 1600px) {
+    margin: 25px 0;
+    width: 275px;
+  }
 `
 
 export const ReviewHeader = styled.header`
@@ -112,14 +223,22 @@ export const ReviewHeader = styled.header`
 `
 
 export const ReviewProfile = styled.img`
-  width: 45px;
+  width: 20px;
+
+  @media (min-width: 1600px) {
+    width: 45px;
+  }
 `
 
 export const ReviewStarsWrapper = styled.section``
 
 export const ReviewStar = styled.img`
-  width: 15px;
+  width: 10px;
   margin: 0 3px;
+
+  @media (min-width: 1600px) {
+    width: 15px;
+  }
 `
 
 export const ReviewFakeTextWrapper = styled.section`
@@ -139,10 +258,19 @@ export const FakeText = styled.span<FakeTextProps>`
   border-radius: 25px;
   margin-right: 5px;
   margin-top: 5px;
+
   ${({ width, height, color }) => css`
     width: ${width}px;
     background-color: ${color || '#ccc'};
-    height: ${height ?? 10}px;
+    height: ${(height ?? 10) * 0.5}px;
+
+    @media (min-width: 800px) {
+      height: ${(height ?? 10) * 0.75}px;
+    }
+
+    @media (min-width: 1600px) {
+      height: ${height ?? 10}px;
+    }
   `}
 `
 
@@ -150,6 +278,11 @@ export const DeviceText = styled.section`
   position: absolute;
   top: 20px;
   left: 25px;
+  display: none;
+
+  @media (min-width: 475px) {
+    display: block;
+  }
 `
 
 export const DeviceTextRow = styled.div`

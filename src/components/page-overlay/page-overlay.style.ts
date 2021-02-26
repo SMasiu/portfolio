@@ -17,14 +17,14 @@ export const OverlayContent = styled.section`
 `
 
 export const changeSlideArrowWrapper = css`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 `
 
 export const PreviousWrapper = styled.section`

@@ -1,3 +1,4 @@
+import { mediaTheme } from '@styles/theme'
 import styled from 'styled-components'
 
 export const SliderContentWrapper = styled.section`
@@ -9,7 +10,12 @@ export const SliderContentWrapper = styled.section`
 
 export const SliderMainWrapper = styled.main``
 
-export const SliderFooter = styled.footer``
+export const SliderFooter = styled.footer`
+  display: none;
+  @media (min-width: ${mediaTheme.sm}) {
+    display: block;
+  }
+`
 
 export const SliderLegendWrapper = styled.section`
   display: flex;

@@ -71,9 +71,9 @@ export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
 
   return (
     <HeroSection>
-      <HeroWatermark>
+      {/* <HeroWatermark>
         <HeroWatermarkText>Web Dev</HeroWatermarkText>
-      </HeroWatermark>
+      </HeroWatermark> */}
       <ScrollWrapper>
         <Scroll />
       </ScrollWrapper>
