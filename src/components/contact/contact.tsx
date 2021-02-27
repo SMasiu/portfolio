@@ -10,6 +10,7 @@ import {
   ContactIllustrationWrapper,
   ContactInnerWrapper,
   ContactItem,
+  ContactItemsWrapper,
   ContactLabel,
   ContactLabelWrapper,
   ContactValue,
@@ -72,15 +73,17 @@ export const Contact: React.FC<ContactProps> = ({ sliderWrapper }) => {
             <ContactHeader>
               <ContactHeading>Contact</ContactHeading>
             </ContactHeader>
-            {contact.map(({ icon, label, value }, i) => (
-              <ContactItem key={i}>
-                <ContactLabelWrapper>
-                  <ContactIconWrapper>{icon}</ContactIconWrapper>
-                  <ContactLabel>{label}</ContactLabel>
-                </ContactLabelWrapper>
-                {value && <ContactValue>{value}</ContactValue>}
-              </ContactItem>
-            ))}
+            <ContactItemsWrapper>
+              {contact.map(({ icon, label, value }, i) => (
+                <ContactItem key={i}>
+                  <ContactLabelWrapper>
+                    <ContactIconWrapper>{icon}</ContactIconWrapper>
+                    <ContactLabel>{label}</ContactLabel>
+                  </ContactLabelWrapper>
+                  {value && <ContactValue>{value}</ContactValue>}
+                </ContactItem>
+              ))}
+            </ContactItemsWrapper>
           </ContactDataWrapper>
           <ContactIllustrationWrapper>
             <ContactIllustration src="/undraw_delivery_address_03n0.svg" />

@@ -1,12 +1,15 @@
-import { colorTheme } from '@styles/theme'
+import { colorTheme, mediaTheme } from '@styles/theme'
 import styled, { css } from 'styled-components'
 
 export const ProjectWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: calc(100vh - 61px);
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  height: auto;
+  margin-bottom: 50px;
 
   ${() => css`
     &:last-child {
@@ -15,6 +18,21 @@ export const ProjectWrapper = styled.section`
       }
     }
   `}
+
+  @media (min-width: ${mediaTheme.sm}) {
+    width: 100%;
+    padding: 0 100px;
+  }
+
+  @media (min-width: 1400px) {
+    height: calc(100vh - 61px);
+    padding: 0 100px 0 200px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 1600px) {
+    min-width: 1500px;
+  }
 `
 
 export const ProjectContainer = styled.section`
@@ -23,7 +41,11 @@ export const ProjectContainer = styled.section`
 `
 
 export const ProjectHeader = styled.header`
-  margin-bottom: 25px;
+  margin-bottom: 10px;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    margin-bottom: 25px;
+  }
 `
 
 export const ProjectName = styled.h3`
@@ -34,14 +56,29 @@ export const ProjectName = styled.h3`
 
 export const ProjectContent = styled.section`
   display: grid;
-  grid-template-columns: 2fr 3fr;
   gap: 50px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1400px) {
+    grid-template-columns: 2fr 3fr;
+  }
 `
 
 export const ProjectDescription = styled.section``
 
 export const AboutProject = styled.article`
   max-width: 600px;
+`
+
+export const AboutMoreInfoWrapper = styled.section`
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: ${mediaTheme.sm}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const UsedTechStack = styled.section``
@@ -105,11 +142,18 @@ export const ProjectImage = styled.img`
 
 export const ProjectTimeLine = styled.span`
   width: 1px;
-  height: calc(100vh - 69px);
   background-color: ${colorTheme.secondary200};
   position: absolute;
   left: -100px;
   top: 12px;
+  height: calc(100% + 44px);
+  display: none;
+
+  @media (min-width: 1400px) {
+    display: block;
+    height: calc(100vh - 68px);
+    left: -50px;
+  }
 `
 export const TimelineDate = styled.section`
   position: absolute;
@@ -118,6 +162,12 @@ export const TimelineDate = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  display: none;
+
+  @media (min-width: 1400px) {
+    display: block;
+    left: -145px;
+  }
 `
 
 export const DateText = styled.p``

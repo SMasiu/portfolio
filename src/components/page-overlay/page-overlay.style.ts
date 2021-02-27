@@ -25,7 +25,7 @@ export const OverlayContent = styled.section`
 export const changeSlideArrowWrapper = css`
   position: fixed;
   top: 0;
-  width: 100px;
+  width: 70px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@ export const NextWrapper = styled.section`
 `
 
 export const arrowButton = css`
-  width: 50px;
+  width: 35px;
 `
 
 export const NextButton = styled(ArrowRight)`

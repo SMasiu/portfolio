@@ -5,7 +5,7 @@ export const HeroSection = styled.section`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 100px 0 150px;
+  padding: 100px 0 200px;
 
   @media (min-width: ${mediaTheme.sm}) {
     padding: 0;
@@ -15,12 +15,19 @@ export const HeroSection = styled.section`
 
 export const HeroWatermark = styled.div`
   position: absolute;
-  top: 72.5%;
-  left: 47.5%;
-  transform: translate(-50%, -50%);
-  font-size: 30vh;
   opacity: 0.1;
   background-blend-mode: soft-light;
+  font-size: 35px;
+  transform: translate(-50%, -50%);
+  bottom: 12.5%;
+  left: 50%;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    bottom: auto;
+    top: 72.5%;
+    left: 47.5%;
+    font-size: 30vh;
+  }
 `
 
 export const HeroWatermarkText = styled.p`

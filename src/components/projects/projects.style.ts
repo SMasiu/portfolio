@@ -1,10 +1,20 @@
-import { colorTheme } from '@styles/theme'
+import { colorTheme, mediaTheme } from '@styles/theme'
 import styled from 'styled-components'
 
 export const ProjectsWrapper = styled.section`
+  padding-top: 50px;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    height: 100%;
+    padding-top: 100px;
+  }
+
+  @media (min-width: 1400px) {
+    padding-top: 0;
+  }
 `
 
 export const ProjectContent = styled.section``

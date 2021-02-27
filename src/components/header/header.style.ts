@@ -96,7 +96,13 @@ export const GithubIcon = styled(Github)`
   ${SocialIcon}
 `
 
-export const Address = styled.address``
+export const Address = styled.address`
+  display: none;
+
+  @media (min-width: 450px) {
+    display: block;
+  }
+`
 
 export const Email = styled.a`
   display: block;
