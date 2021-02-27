@@ -5,7 +5,7 @@ import { PageOverlay } from '@components/page-overlay/page-overlay'
 import { Projects } from '@components/projects/projects'
 import { SliderContent } from '@components/slider-content/slider-content'
 import * as React from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   AboutContent,
   ContactWrapper,
@@ -39,7 +39,7 @@ export const PageSlider = () => {
   const slideTo = (slide: number) => {
     if (!state.preventSlide) {
       dispatch({ type: SliderActions.PREVENT_SLIDE })
-      const slides = [heroContentElem, aboutContentElem, projectsContentElem, contactContentElem]
+      const slides = ['#hero-content', '#about-content', '#projects-content', '#contact-content']
 
       slides.forEach((id) => {
         gsap.to(id, {
@@ -77,7 +77,7 @@ export const PageSlider = () => {
             <About sliderWrapper={aboutContentElem} />
           </SliderContent>
         </AboutContent>
-        {/* <ProjectsContent id="projects-content">
+        <ProjectsContent id="projects-content">
           <SliderContent>
             <Projects sliderWrapper={projectsContentElem} />
           </SliderContent>
@@ -86,7 +86,7 @@ export const PageSlider = () => {
           <SliderContent>
             <Contact sliderWrapper={contactContentElem} />
           </SliderContent>
-        </ContactWrapper> */}
+        </ContactWrapper>
       </PageSlides>
     </PageSliderWrapper>
   )
