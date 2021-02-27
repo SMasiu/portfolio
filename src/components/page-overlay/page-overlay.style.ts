@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import ArrowLeft from '@icons/arrow-left.svg'
 import ArrowRight from '@icons/arrow-right.svg'
+import { mediaTheme } from '@styles/theme'
 
 export const PageOverlayWrapper = styled.section`
   position: absolute;
@@ -8,6 +9,11 @@ export const PageOverlayWrapper = styled.section`
   left: 0;
   width: 100%;
   height: 100%;
+  display: none;
+
+  @media (min-width: ${mediaTheme.sm}) {
+    display: block;
+  }
 `
 
 export const OverlayContent = styled.section`
@@ -50,10 +56,10 @@ export const PreviousButton = styled(ArrowLeft)`
 `
 
 export const OverlayFooter = styled.footer`
+  position: fixed;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-end;
-  position: absolute;
   bottom: 0;
   width: 100%;
   padding: 0 35px 10px;

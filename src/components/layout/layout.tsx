@@ -10,7 +10,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       <GlobalStyles />
-      <Header />
+      {/* <Header /> */}
 
       <main>{children}</main>
     </div>

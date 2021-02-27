@@ -77,7 +77,7 @@ export const PageSlider = () => {
             <About sliderWrapper={aboutContentElem} />
           </SliderContent>
         </AboutContent>
-        <ProjectsContent id="projects-content">
+        {/* <ProjectsContent id="projects-content">
           <SliderContent>
             <Projects sliderWrapper={projectsContentElem} />
           </SliderContent>
@@ -86,7 +86,7 @@ export const PageSlider = () => {
           <SliderContent>
             <Contact sliderWrapper={contactContentElem} />
           </SliderContent>
-        </ContactWrapper>
+        </ContactWrapper> */}
       </PageSlides>
     </PageSliderWrapper>
   )

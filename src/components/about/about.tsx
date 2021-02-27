@@ -14,10 +14,8 @@ import {
   TechStackLogo,
   TechStackFooter,
   AboutIllustrationWrapper,
-  Line,
   TechStackNeuron,
-  TechStackLayers,
-  TechStackOutputLayer
+  TechStackLayers
 } from './about.style'
 import AboutIllustration from '@icons/about.svg'
 import { techStackItems } from '@common/tech-stack'
@@ -28,74 +26,58 @@ import { handleWheel } from '@common/handle-wheel'
 const techStack = [
   [
     {
-      ...techStackItems.js,
-      lines: [<Line w="94px" key={1} />, <Line w="222px" r={65} key={2} />]
+      ...techStackItems.js
     },
     {
-      ...techStackItems.ts,
-      lines: [<Line w="137px" r={47} key={1} />, <Line w="222px" r={65} key={2} />]
+      ...techStackItems.ts
     },
     {
-      ...techStackItems.node,
-      lines: [<Line w="137px" r={47} key={1} />, <Line w="312px" r={72.7} key={2} />]
+      ...techStackItems.node
     },
     {
-      ...techStackItems.nest,
-      lines: [<Line w="165px" r={65} key={1} />]
+      ...techStackItems.nest
     }
   ],
   [
     {
-      ...techStackItems.html,
-      lines: [<Line w="137px" r={-47} key={1} />, <Line w="222px" r={65} key={2} />]
+      ...techStackItems.html
     },
     {
-      ...techStackItems.css,
-      lines: [<Line w="94px" key={1} />, <Line w="137px" r={-47} key={2} />]
+      ...techStackItems.css
     },
     {
-      ...techStackItems.angular,
-      lines: [<Line w="137px" r={-47} key={1} />, <Line w="137px" r={47} key={2} />]
+      ...techStackItems.angular
     },
     {
-      ...techStackItems.react,
-      lines: [<Line w="86px" r={35.8} key={2} />]
+      ...techStackItems.react
     }
   ],
   [
     {
-      ...techStackItems.graphql,
-      lines: [<Line w="137px" r={-47} key={1} />, <Line w="137px" r={47} key={2} />]
+      ...techStackItems.graphql
     },
     {
-      ...techStackItems.gatsby,
-      lines: [<Line w="94px" key={1} />, <Line w="137px" r={47} key={2} />]
+      ...techStackItems.gatsby
     },
     {
-      ...techStackItems.postgresql,
-      lines: [<Line w="94px" key={1} />, <Line w="137px" r={47} key={2} />]
+      ...techStackItems.postgresql
     },
     {
-      ...techStackItems.mongodb,
-      lines: [<Line w="86px" r={-35.8} key={1} />]
+      ...techStackItems.mongodb
     }
   ],
   [
     {
-      ...techStackItems.python,
-      lines: [<Line w="94px" key={1} />]
+      ...techStackItems.python
     },
     {
-      ...techStackItems.docker,
-      lines: [<Line w="94px" key={1} />, <Line w="137px" r={-47} key={2} />]
+      ...techStackItems.docker
     },
     {
-      ...techStackItems.github,
-      lines: [<Line w="94px" key={1} />]
+      ...techStackItems.github
     },
     {
-      ...techStackItems.npm,
-      lines: [<Line w="165px" r={-65} key={1} />]
+      ...techStackItems.npm
     }
   ]
 ]
@@ -139,20 +121,14 @@ export const About: React.FC<AboutProps> = ({ sliderWrapper }) => {
             <TechStackLayers>
               {techStack.map((items, i) => (
                 <TechStackContent key={i}>
-                  {items.map(({ logo, lines }, j) => (
+                  {items.map(({ logo }, j) => (
                     <TechStackItem key={j}>
                       <TechStackLogo src={logo}></TechStackLogo>
-                      {lines}
                     </TechStackItem>
                   ))}
                 </TechStackContent>
               ))}
             </TechStackLayers>
-            <TechStackOutputLayer>
-              <TechStackItem>
-                <TechStackLogo src="/web-dev.svg"></TechStackLogo>
-              </TechStackItem>
-            </TechStackOutputLayer>
           </TechStackNeuron>
           <TechStackFooter>
             <Button>Play</Button>

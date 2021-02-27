@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { colorTheme, fontFamilyTheme } from './theme'
+import { colorTheme, fontFamilyTheme, mediaTheme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -32,7 +32,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .about-illustration {
-    opacity: 0.2;
-    mix-blend-mode: soft-light;
+    @media (min-width: 1400px) {
+      opacity: 0.2;
+      mix-blend-mode: soft-light;
+    }
   }
 `
