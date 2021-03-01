@@ -1,6 +1,7 @@
 import { Button } from '@components/button/button'
 import { Scroll } from '@components/scroll/scroll'
 import * as React from 'react'
+import { useEffect } from 'react'
 import {
   Device,
   DevicePerson,
@@ -27,11 +28,11 @@ import {
   ReviewStarsWrapper,
   ScrollWrapper
 } from './hero.style'
-import { useState, forwardRef } from 'react'
+import { useState } from 'react'
 import { useSliderState } from '@global-state/slider-store'
-import { SliderActions } from '../../types/global-state.type'
 import { useWheel } from '@hooks/use-wheel'
 import { handleWheel } from '@common/handle-wheel'
+import gsap from 'gsap'
 
 const reviews = [
   {
@@ -58,8 +59,44 @@ export interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
+  const [loadedPage, setLoadedPage] = useState(false)
 
   useWheel(handleWheel(1, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+
+  useEffect(() => {
+    if (state.currentSlide === 1) {
+      const t = gsap.timeline({ defaults: { duration: 1 } })
+      t.delay(loadedPage ? 2 : 0.5)
+        .fromTo(
+          '#hero-header',
+          { opacity: 0, x: -100 },
+          {
+            opacity: 1,
+            x: 0
+          }
+        )
+        .fromTo(
+          '#hero-article',
+          { opacity: 0, y: -50 },
+          {
+            opacity: 1,
+            y: 0
+          }
+        )
+        .then(() => {
+          if (!loadedPage) setLoadedPage(true)
+        })
+    } else {
+      const t = gsap.timeline({ defaults: { duration: 0.5 } })
+      t.to('#hero-header', {
+        opacity: 0,
+        x: -100
+      }).to('#hero-article', {
+        opacity: 0,
+        y: -50
+      })
+    }
+  }, [state.currentSlide])
 
   const generateStars = (rate: number) => {
     const images: string[] = []
@@ -71,23 +108,26 @@ export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
 
   return (
     <HeroSection>
-      {/* <HeroWatermark>
+      <HeroWatermark>
         <HeroWatermarkText>Web Dev</HeroWatermarkText>
-      </HeroWatermark> */}
+      </HeroWatermark>
       <ScrollWrapper>
         <Scroll />
       </ScrollWrapper>
       <HeroContent>
         <HeroAboutArticle>
-          <HeroHeader>
+          <HeroHeader id="hero-header">
             <HeroTitle>Szymon Maśko</HeroTitle>
             <HeroSubTitle>Web developer</HeroSubTitle>
           </HeroHeader>
-          <HeroAbout>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum
-            necessitatibus pariatur adipisci explicabo cumque eos quos alias commodi quibusdam vel.
-          </HeroAbout>
-          <Button>View more</Button>
+          <div id="hero-article">
+            <HeroAbout>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum
+              necessitatibus pariatur adipisci explicabo cumque eos quos alias commodi quibusdam
+              vel.
+            </HeroAbout>
+            <Button>View more</Button>
+          </div>
         </HeroAboutArticle>
         <HeroProductSection>
           <Device>

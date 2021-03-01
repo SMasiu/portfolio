@@ -19,13 +19,25 @@ export const HeroWatermark = styled.div`
   background-blend-mode: soft-light;
   font-size: 35px;
   transform: translate(-50%, -50%);
-  bottom: 12.5%;
   left: 50%;
+  display: none;
+  white-space: nowrap;
+
+  @media (min-width: 500px) {
+    bottom: 20%;
+    display: block;
+    font-size: 105px;
+  }
 
   @media (min-width: ${mediaTheme.sm}) {
+    display: block;
     bottom: auto;
     top: 72.5%;
     left: 47.5%;
+    font-size: 25vh;
+  }
+
+  @media (min-width: 1600px) {
     font-size: 30vh;
   }
 `

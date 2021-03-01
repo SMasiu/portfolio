@@ -79,7 +79,7 @@ export const Projects: React.FC<ProjectsProps> = ({ sliderWrapper }) => {
           <Project project={project} key={i} />
         ))}
       </ProjectContent>
-      <ProjectsFooter>
+      {/* <ProjectsFooter>
         <Code>
           <CodeLabel>Code</CodeLabel>
           <CodeInputs>
@@ -90,7 +90,7 @@ export const Projects: React.FC<ProjectsProps> = ({ sliderWrapper }) => {
             <Input />
           </CodeInputs>
         </Code>
-      </ProjectsFooter>
+      </ProjectsFooter> */}
     </ProjectsWrapper>
   )
 }

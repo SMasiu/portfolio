@@ -108,7 +108,7 @@ export const TechStackLogo = styled.img`
 export const TechStackFooter = styled.footer`
   margin-top: 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 `
 
 export const AboutIllustrationWrapper = styled.figure`

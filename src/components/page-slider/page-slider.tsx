@@ -45,7 +45,8 @@ export const PageSlider = () => {
         gsap.to(id, {
           x: `${-100 * (slide - 1)}%`,
           duration: 1,
-          ease: 'power2.inOut'
+          ease: 'power2.inOut',
+          delay: 1
         })
       })
 
@@ -57,9 +58,8 @@ export const PageSlider = () => {
 
   const handleChangeSlide = (slide: number) => {
     if (slide >= 0 && slide <= slidesCount) {
-      slideTo(slide)
-
       dispatch({ type: SliderActions.SET_SLIDE, payload: { currentSlide: slide } })
+      slideTo(slide)
     }
   }
 

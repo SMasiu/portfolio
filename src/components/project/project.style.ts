@@ -159,13 +159,12 @@ export const TimelineDate = styled.section`
   position: absolute;
   width: 100px;
   left: -195px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   display: none;
 
   @media (min-width: 1400px) {
-    display: block;
+    display: flex;
     left: -145px;
   }
 `

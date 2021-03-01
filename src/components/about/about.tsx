@@ -131,7 +131,7 @@ export const About: React.FC<AboutProps> = ({ sliderWrapper }) => {
             </TechStackLayers>
           </TechStackNeuron>
           <TechStackFooter>
-            <Button>Play</Button>
+            {/* <Button>Play</Button> */}
             <Button>View full list</Button>
           </TechStackFooter>
         </TechStackWrapper>
