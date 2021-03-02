@@ -33,6 +33,7 @@ import { useSliderState } from '@global-state/slider-store'
 import { useWheel } from '@hooks/use-wheel'
 import { handleWheel } from '@common/handle-wheel'
 import gsap from 'gsap'
+import HeroSvg from '@icons/hero.svg'
 
 const reviews = [
   {
@@ -65,36 +66,53 @@ export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
 
   useEffect(() => {
     if (state.currentSlide === 1) {
-      const t = gsap.timeline({ defaults: { duration: 1 } })
-      t.delay(loadedPage ? 2 : 0.5)
-        .fromTo(
-          '#hero-header',
-          { opacity: 0, x: -100 },
-          {
-            opacity: 1,
-            x: 0
-          }
-        )
-        .fromTo(
-          '#hero-article',
-          { opacity: 0, y: -50 },
-          {
-            opacity: 1,
-            y: 0
-          }
-        )
+      const delay = loadedPage ? 2 : 0.5
+      const t1 = gsap.timeline({ defaults: { duration: 1 } })
+      const t3 = gsap.timeline({ defaults: { duration: 1 } })
+      const t4 = gsap.timeline({ defaults: { duration: 0.5 } })
+      const t5 = gsap.timeline({ defaults: { duration: 0.5 } })
+
+      t1.delay(delay)
+        .fromTo('#hero-header', { opacity: 0, x: -100 }, { opacity: 1, x: 0 })
+        .fromTo('#hero-article', { opacity: 0, y: -50 }, { opacity: 1, y: 0 })
         .then(() => {
           if (!loadedPage) setLoadedPage(true)
         })
+
+      t3.delay(delay).fromTo('#hero-watermark', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1 })
+
+      t4.delay(delay)
+        .fromTo('#hero-review-0', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#hero-review-1', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#hero-review-2', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#hero-text', { opacity: 0, y: -50 }, { opacity: 1, y: 0 })
+
+      t5.delay(delay)
+        .fromTo('#hero-il-rect-0', { scale: 0, opacity: 0, y: -50 }, { scale: 1, opacity: 1, y: 0 })
+        .fromTo('#hero-il-rect-1', { scale: 0, opacity: 0, y: -50 }, { scale: 1, opacity: 1, y: 0 })
+        .fromTo('#hero-il-rect-2', { scale: 0, opacity: 0, y: -50 }, { scale: 1, opacity: 1, y: 0 })
+        .fromTo('#hero-il-rect-3', { scale: 0, opacity: 0, y: -50 }, { scale: 1, opacity: 1, y: 0 })
+        .fromTo('#hero-il-graph', { opacity: 0 }, { opacity: 1 })
     } else {
-      const t = gsap.timeline({ defaults: { duration: 0.5 } })
-      t.to('#hero-header', {
-        opacity: 0,
-        x: -100
-      }).to('#hero-article', {
-        opacity: 0,
-        y: -50
-      })
+      const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
+      const t2 = gsap.timeline({ defaults: { duration: 1 } })
+      const t3 = gsap.timeline({ defaults: { duration: 1 } })
+      const t4 = gsap.timeline({ defaults: { duration: 0.25 } })
+      const t5 = gsap.timeline({ defaults: { duration: 0.2 } })
+
+      t1.to('#hero-header', { opacity: 0, x: -100 }).to('#hero-article', { opacity: 0, y: -50 })
+      t3.to('#hero-watermark', { scale: 0, opacity: 0 })
+
+      t4.to('#hero-review-0', { opacity: 0, x: -50 })
+        .to('#hero-review-1', { opacity: 0, x: -50 })
+        .to('#hero-review-2', { opacity: 0, x: -50 })
+        .to('#hero-text', { opacity: 0, y: -50 })
+
+      t5.to('#hero-il-rect-0', { scale: 0, opacity: 0, y: -50 })
+        .to('#hero-il-rect-1', { scale: 0, opacity: 0, y: -50 })
+        .to('#hero-il-rect-2', { scale: 0, opacity: 0, y: -50 })
+        .to('#hero-il-rect-3', { scale: 0, opacity: 0, y: -50 })
+        .to('#hero-il-graph', { opacity: 0 })
     }
   }, [state.currentSlide])
 
@@ -109,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
   return (
     <HeroSection>
       <HeroWatermark>
-        <HeroWatermarkText>Web Dev</HeroWatermarkText>
+        <HeroWatermarkText id="hero-watermark">Web Dev</HeroWatermarkText>
       </HeroWatermark>
       <ScrollWrapper>
         <Scroll />
@@ -131,8 +149,8 @@ export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
         </HeroAboutArticle>
         <HeroProductSection>
           <Device>
-            <Glass></Glass>
-            <DeviceText>
+            <Glass id="hero-device"></Glass>
+            <DeviceText id="hero-text">
               <DeviceTextRow>
                 <FakeText width={200} height={20} color={'#2c2c2c'}></FakeText>
                 <FakeText width={140} height={20} color={'#2c2c2c'}></FakeText>
@@ -148,10 +166,12 @@ export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
                 <FakeText width={60} color={'#f8f8f8'}></FakeText>
               </DeviceTextRow>
             </DeviceText>
-            <DevicePerson src="undraw_annotation_7das.svg"></DevicePerson>
+            <DevicePerson>
+              <HeroSvg />
+            </DevicePerson>
             <DeviceReviews>
               {reviews.map(({ profileUrl, fakeText, rate }, i) => (
-                <Review key={i}>
+                <Review key={i} id={`hero-review-${i}`}>
                   <ReviewHeader>
                     <ReviewProfile src={profileUrl}></ReviewProfile>
                     <ReviewStarsWrapper>

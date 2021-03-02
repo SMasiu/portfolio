@@ -144,16 +144,16 @@ export const Glass = styled.section`
   }
 `
 
-export const DevicePerson = styled.img`
+export const DevicePerson = styled.figure`
   position: absolute;
   left: 0;
   height: auto;
   transform: scaleX(-1) translate(5%, 35%);
   width: 100%;
-  bottom: 25px;
+  bottom: -50px;
 
   @media (min-width: 475px) {
-    bottom: 0;
+    bottom: -150px;
     width: 50%;
     transform: scaleX(-1) translate(10%, 20%);
   }
@@ -161,12 +161,17 @@ export const DevicePerson = styled.img`
   @media (min-width: ${mediaTheme.sm}) {
     height: 100%;
     bottom: auto;
-    top: 0;
+    top: -40%;
     transform: scaleX(-1) translate(75px, 95px);
     width: 100%;
   }
 
+  @media (min-width: 1200px) {
+    top: -35%;
+  }
+
   @media (min-width: 1600px) {
+    top: -25%;
     transform: scaleX(-1) translate(100px, 100px);
   }
 `
