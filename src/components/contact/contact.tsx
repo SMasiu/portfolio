@@ -56,16 +56,12 @@ const contact = [
   }
 ]
 
-export interface ContactProps {
-  sliderWrapper: HTMLElement
-}
-
-export const Contact: React.FC<ContactProps> = ({ sliderWrapper }) => {
+export const Contact: React.FC = () => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
   const [isAnimating, setIsAnimating] = useState(false)
 
-  useWheel(handleWheel(4, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+  useWheel('#contact-content', handleWheel(4, state, dispatch, scrollTicks, setScrolledTicks))
 
   useEffect(() => {
     if (state.disableSlide) {
@@ -74,7 +70,7 @@ export const Contact: React.FC<ContactProps> = ({ sliderWrapper }) => {
     if (state.currentSlide === 4) {
       setIsAnimating(true)
       const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
-      t1.delay(1)
+      t1.delay(2)
         .fromTo('#contact-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
         .fromTo('#contact-item-0', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
         .fromTo('#contact-item-1', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
@@ -130,7 +126,7 @@ export const Contact: React.FC<ContactProps> = ({ sliderWrapper }) => {
             </ContactItemsWrapper>
           </ContactDataWrapper>
           <ContactIllustrationWrapper>
-            <ContactIllustration src="/undraw_delivery_address_03n0.svg" />
+            <ContactIllustration src="undraw_delivery_address_03n0.svg" />
           </ContactIllustrationWrapper>
         </ContactInnerWrapper>
       </ContactContent>

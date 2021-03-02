@@ -8,9 +8,8 @@ export const handleWheel = (
   state: SliderGlobalState,
   dispatch: React.Dispatch<SliderAction>,
   scrollTicks: number,
-  setScrolledTicks: (num: number) => void,
-  sliderWrapper: HTMLElement
-) => (e: WheelEvent) => {
+  setScrolledTicks: (num: number) => void
+) => (e: WheelEvent, sliderWrapper: HTMLElement) => {
   const { currentSlide, preventSlide, disableSlide } = state
   if (state.currentSlide === slideIndex) {
     if (currentSlide !== slidesCount && scrollTicks <= -CHANGE_TICKS) {

@@ -1,10 +1,12 @@
 const path = require('path')
 
 module.exports = {
+  pathPrefix: '/portfolio',
   siteMetadata: {
     title: 'Portfolio',
     description: `Portfolio`,
-    author: `@smasiu`
+    author: `@smasiu`,
+    siteUrl: `https://smasiu.github.io/portfolio/`
   },
   plugins: [
     'gatsby-plugin-styled-components',

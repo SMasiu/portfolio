@@ -5,7 +5,7 @@ import { PageOverlay } from '@components/page-overlay/page-overlay'
 import { Projects } from '@components/projects/projects'
 import { SliderContent } from '@components/slider-content/slider-content'
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import {
   AboutContent,
   ContactWrapper,
@@ -24,10 +24,12 @@ export const PageSlider = () => {
   const [lastState, setLastState] = useState(1)
   const currentSlide = state.currentSlide
 
-  const heroContentElem: HTMLElement = document.querySelector('#hero-content')
-  const aboutContentElem: HTMLElement = document.querySelector('#about-content')
-  const projectsContentElem: HTMLElement = document.querySelector('#projects-content')
-  const contactContentElem: HTMLElement = document.querySelector('#contact-content')
+  useEffect(() => {
+    dispatch({
+      type: SliderActions.SET_DISABLED,
+      payload: { disableSlide: document.body.clientWidth <= 1024 }
+    })
+  }, [])
 
   useEffect(() => {
     if (currentSlide !== lastState) {
@@ -69,22 +71,22 @@ export const PageSlider = () => {
       <PageSlides>
         <HeroContent id="hero-content">
           <SliderContent>
-            <Hero sliderWrapper={heroContentElem} />
+            <Hero />
           </SliderContent>
         </HeroContent>
         <AboutContent id="about-content">
           <SliderContent>
-            <About sliderWrapper={aboutContentElem} />
+            <About />
           </SliderContent>
         </AboutContent>
         <ProjectsContent id="projects-content">
           <SliderContent>
-            <Projects sliderWrapper={projectsContentElem} />
+            <Projects />
           </SliderContent>
         </ProjectsContent>
         <ContactWrapper id="contact-content">
           <SliderContent>
-            <Contact sliderWrapper={contactContentElem} />
+            <Contact />
           </SliderContent>
         </ContactWrapper>
       </PageSlides>

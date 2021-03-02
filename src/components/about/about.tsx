@@ -24,7 +24,6 @@ import { useWheel } from '@hooks/use-wheel'
 import { handleWheel } from '@common/handle-wheel'
 import gsap from 'gsap'
 import { afterSlideOut } from '@common/animation'
-import { SliderActions } from '../../types/global-state.type'
 
 const techStack = [
   [techStackItems.js, techStackItems.ts, techStackItems.node, techStackItems.nest],
@@ -38,16 +37,12 @@ const techStack = [
   [techStackItems.python, techStackItems.docker, techStackItems.github, techStackItems.npm]
 ]
 
-export interface AboutProps {
-  sliderWrapper: HTMLElement
-}
-
-export const About: React.FC<AboutProps> = ({ sliderWrapper }) => {
+export const About: React.FC = () => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
   const [isAnimating, setIsAnimating] = useState(false)
 
-  useWheel(handleWheel(2, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+  useWheel('#about-content', handleWheel(2, state, dispatch, scrollTicks, setScrolledTicks))
 
   useEffect(() => {
     if (state.disableSlide) {
@@ -69,11 +64,11 @@ export const About: React.FC<AboutProps> = ({ sliderWrapper }) => {
       const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
       const t2 = gsap.timeline({ defaults: { duration: 0.5 } })
 
-      t1.delay(1)
+      t1.delay(2)
         .fromTo('#about-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
         .fromTo('#about-article', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
 
-      t2.delay(1)
+      t2.delay(2)
         .fromTo('#tech-stack-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
         .fromTo('#tech-stack-row-0', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
         .fromTo('#tech-stack-row-1', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })

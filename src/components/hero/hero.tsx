@@ -54,17 +54,13 @@ const reviews = [
   }
 ]
 
-export interface HeroProps {
-  sliderWrapper: HTMLElement
-}
-
-export const Hero: React.FC<HeroProps> = ({ sliderWrapper }) => {
+export const Hero: React.FC = () => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
   const [loadedPage, setLoadedPage] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
 
-  useWheel(handleWheel(1, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+  useWheel('#hero-content', handleWheel(1, state, dispatch, scrollTicks, setScrolledTicks))
 
   useEffect(() => {
     if (state.disableSlide) {

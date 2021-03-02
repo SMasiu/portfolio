@@ -28,9 +28,9 @@ const projects: ProjectType[] = [
         voluptatem minima perspiciatis vero sapiente.
       `,
     techStack: [techStackItems.js, techStackItems.react, techStackItems.html, techStackItems.css],
-    links: [{ name: 'Code', icon: '/star-empty.svg', url: 'https://mycovid.pl' }],
-    image: '/projects/web-graphs-1.png',
-    watermark: '/projects/statistics.svg'
+    links: [{ name: 'Code', icon: 'star-empty.svg', url: 'https://mycovid.pl' }],
+    image: 'projects/web-graphs-1.png',
+    watermark: 'projects/statistics.svg'
   },
   {
     name: 'My Covid2',
@@ -42,9 +42,9 @@ const projects: ProjectType[] = [
         voluptatem minima perspiciatis vero sapiente.
       `,
     techStack: [techStackItems.js, techStackItems.react, techStackItems.html, techStackItems.css],
-    links: [{ name: 'Code', icon: '/star-empty.svg', url: 'https://mycovid.pl' }],
-    image: '/projects/web-graphs-1.png',
-    watermark: '/projects/statistics.svg'
+    links: [{ name: 'Code', icon: 'star-empty.svg', url: 'https://mycovid.pl' }],
+    image: 'projects/web-graphs-1.png',
+    watermark: 'projects/statistics.svg'
   },
   {
     name: 'My Covid3',
@@ -56,21 +56,17 @@ const projects: ProjectType[] = [
         voluptatem minima perspiciatis vero sapiente.
       `,
     techStack: [techStackItems.js, techStackItems.react, techStackItems.html, techStackItems.css],
-    links: [{ name: 'Code', icon: '/star-empty.svg', url: 'https://mycovid.pl' }],
-    image: '/projects/web-graphs-1.png',
-    watermark: '/projects/statistics.svg'
+    links: [{ name: 'Code', icon: 'star-empty.svg', url: 'https://mycovid.pl' }],
+    image: 'projects/web-graphs-1.png',
+    watermark: 'projects/statistics.svg'
   }
 ]
 
-export interface ProjectsProps {
-  sliderWrapper: HTMLElement
-}
-
-export const Projects: React.FC<ProjectsProps> = ({ sliderWrapper }) => {
+export const Projects: React.FC = () => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
 
-  useWheel(handleWheel(3, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
+  useWheel('#projects-content', handleWheel(3, state, dispatch, scrollTicks, setScrolledTicks))
 
   return (
     <ProjectsWrapper>

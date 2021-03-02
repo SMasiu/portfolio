@@ -1,12 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { throttle, debounce } from 'lodash'
 import { useSliderState } from '@global-state/slider-store'
 import { SliderActions } from '../types/global-state.type'
 
-export const useWheel = (onWheel: (e: WheelEvent) => void) => {
+export const useWheel = (
+  elementId: string,
+  onWheel: (e: WheelEvent, elem: HTMLElement) => void
+) => {
   const { state, dispatch } = useSliderState()
+  const [elem, setElem] = useState<HTMLElement>(null)
 
   useEffect(() => {
+    setElem(document.querySelector(elementId) as HTMLElement)
     window.addEventListener('resize', handleResize)
     window.addEventListener('wheel', handleScroll)
 
@@ -24,6 +29,6 @@ export const useWheel = (onWheel: (e: WheelEvent) => void) => {
   }, 250)
 
   const handleScroll = throttle((e: WheelEvent) => {
-    onWheel(e)
+    onWheel(e, elem)
   }, 100)
 }

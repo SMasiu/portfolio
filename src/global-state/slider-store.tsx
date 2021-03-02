@@ -7,7 +7,7 @@ const defaultState: SliderGlobalState = {
   currentSlide: 1,
   lastSlide: null,
   preventSlide: false,
-  disableSlide: document.body.clientWidth <= 1024
+  disableSlide: false
 }
 
 const Context = createContext<GlobalStore<SliderAction>>({ state: defaultState })
