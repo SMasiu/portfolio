@@ -3,7 +3,7 @@ import { SliderGlobalState, SliderAction, SliderActions } from '../types/global-
 export const reducer = (state: SliderGlobalState, action: SliderAction): SliderGlobalState => {
   switch (action.type) {
     case SliderActions.SET_SLIDE:
-      return { ...state, currentSlide: action.payload.currentSlide }
+      return { ...state, currentSlide: action.payload.currentSlide, lastSlide: state.currentSlide }
     case SliderActions.PREVENT_SLIDE:
       return { ...state, preventSlide: true }
     case SliderActions.ENABLE_SLIDE:

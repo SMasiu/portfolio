@@ -5,6 +5,7 @@ export interface GlobalStore<T> {
 
 export interface SliderGlobalState {
   currentSlide: number
+  lastSlide: number
   disableSlide: boolean
   preventSlide: boolean
 }

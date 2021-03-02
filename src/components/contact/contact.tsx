@@ -63,42 +63,48 @@ export interface ContactProps {
 export const Contact: React.FC<ContactProps> = ({ sliderWrapper }) => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
+  const [isAnimating, setIsAnimating] = useState(false)
 
   useWheel(handleWheel(4, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
 
   useEffect(() => {
-    if (!state.disableSlide) {
-      if (state.currentSlide === 4) {
-        const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
-        t1.delay(2)
-          .fromTo('#contact-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
-          .fromTo('#contact-item-0', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
-          .fromTo('#contact-item-1', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
-          .fromTo('#contact-item-2', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
-          .fromTo('#contact-item-3', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
-          .fromTo('#contact-item-4', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
-          .fromTo('#contact-watermark', { opacity: 0, scale: 0 }, { opacity: 0.1, scale: 1 })
-      } else {
-        const t1 = gsap.timeline({ defaults: { duration: 0.2 } })
-        t1.to('#contact-watermark', { opacity: 0, scale: 0.5 })
-          .to('#contact-item-4', { opacity: 0, x: -50 })
-          .to('#contact-item-3', { opacity: 0, x: -50 })
-          .to('#contact-item-2', { opacity: 0, x: -50 })
-          .to('#contact-item-1', { opacity: 0, x: -50 })
-          .to('#contact-item-0', { opacity: 0, x: -50 })
-          .to('#contact-header', { opacity: 0, y: -100 })
-          .then(
-            afterSlideOut([
-              '#contact-watermark',
-              '#contact-item-4',
-              '#contact-item-3',
-              '#contact-item-2',
-              '#contact-item-1',
-              '#contact-item-0',
-              '#contact-header'
-            ])
-          )
-      }
+    if (state.disableSlide) {
+      return
+    }
+    if (state.currentSlide === 4) {
+      setIsAnimating(true)
+      const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
+      t1.delay(1)
+        .fromTo('#contact-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
+        .fromTo('#contact-item-0', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#contact-item-1', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#contact-item-2', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#contact-item-3', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#contact-item-4', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+        .fromTo('#contact-watermark', { opacity: 0, scale: 0 }, { opacity: 0.1, scale: 1 })
+        .then(() => {
+          setIsAnimating(false)
+        })
+    } else if (!isAnimating && state.lastSlide === 4) {
+      const t1 = gsap.timeline({ defaults: { duration: 0.2 } })
+      t1.to('#contact-watermark', { opacity: 0, scale: 0.5 })
+        .to('#contact-item-4', { opacity: 0, x: -50 })
+        .to('#contact-item-3', { opacity: 0, x: -50 })
+        .to('#contact-item-2', { opacity: 0, x: -50 })
+        .to('#contact-item-1', { opacity: 0, x: -50 })
+        .to('#contact-item-0', { opacity: 0, x: -50 })
+        .to('#contact-header', { opacity: 0, y: -100 })
+        .then(
+          afterSlideOut([
+            '#contact-watermark',
+            '#contact-item-4',
+            '#contact-item-3',
+            '#contact-item-2',
+            '#contact-item-1',
+            '#contact-item-0',
+            '#contact-header'
+          ])
+        )
     }
   }, [state.currentSlide])
 

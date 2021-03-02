@@ -24,6 +24,7 @@ import { useWheel } from '@hooks/use-wheel'
 import { handleWheel } from '@common/handle-wheel'
 import gsap from 'gsap'
 import { afterSlideOut } from '@common/animation'
+import { SliderActions } from '../../types/global-state.type'
 
 const techStack = [
   [techStackItems.js, techStackItems.ts, techStackItems.node, techStackItems.nest],
@@ -44,54 +45,62 @@ export interface AboutProps {
 export const About: React.FC<AboutProps> = ({ sliderWrapper }) => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
+  const [isAnimating, setIsAnimating] = useState(false)
 
   useWheel(handleWheel(2, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
 
   useEffect(() => {
-    if (!state.disableSlide) {
-      if (state.currentSlide === 2) {
-        const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
-        const t2 = gsap.timeline({ defaults: { duration: 0.5 } })
+    if (state.disableSlide) {
+      return
+    }
 
-        t1.delay(2)
-          .fromTo('#about-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
-          .fromTo('#about-article', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+    const afterT1 = afterSlideOut(['#about-header', '#about-article'])
+    const afterT2 = afterSlideOut([
+      '#tech-stack-header',
+      '#tech-stack-row-0',
+      '#tech-stack-row-1',
+      '#tech-stack-row-2',
+      '#tech-stack-row-3',
+      '#tech-stack-button'
+    ])
 
-        t2.delay(2)
-          .fromTo('#tech-stack-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
-          .fromTo('#tech-stack-row-0', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
-          .fromTo('#tech-stack-row-1', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
-          .fromTo('#tech-stack-row-2', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
-          .fromTo('#tech-stack-row-3', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
-          .fromTo('#tech-stack-button', { opacity: 0, y: 50 }, { opacity: 1, y: 0 })
-      } else {
-        const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
-        const t2 = gsap.timeline({ defaults: { duration: 0.25 } })
+    if (state.currentSlide === 2) {
+      setIsAnimating(true)
+      const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
+      const t2 = gsap.timeline({ defaults: { duration: 0.5 } })
 
-        t1.to('#about-header', { opacity: 0, y: -100 })
-          .to('#about-article', {
-            opacity: 0,
-            x: -50
-          })
-          .then(afterSlideOut(['#about-header', '#about-article']))
+      t1.delay(1)
+        .fromTo('#about-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
+        .fromTo('#about-article', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
 
-        t2.to('#tech-stack-header', { opacity: 0, y: -100 })
-          .to('#tech-stack-row-0', { opacity: 0, x: 100 })
-          .to('#tech-stack-row-1', { opacity: 0, x: 100 })
-          .to('#tech-stack-row-2', { opacity: 0, x: 100 })
-          .to('#tech-stack-row-3', { opacity: 0, x: 100 })
-          .to('#tech-stack-button', { opacity: 0, y: 50 })
-          .then(
-            afterSlideOut([
-              '#tech-stack-header',
-              '#tech-stack-row-0',
-              '#tech-stack-row-1',
-              '#tech-stack-row-2',
-              '#tech-stack-row-3',
-              '#tech-stack-button'
-            ])
-          )
-      }
+      t2.delay(1)
+        .fromTo('#tech-stack-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
+        .fromTo('#tech-stack-row-0', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
+        .fromTo('#tech-stack-row-1', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
+        .fromTo('#tech-stack-row-2', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
+        .fromTo('#tech-stack-row-3', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
+        .fromTo('#tech-stack-button', { opacity: 0, y: 50 }, { opacity: 1, y: 0 })
+        .then(() => {
+          setIsAnimating(false)
+        })
+    } else if (!isAnimating && state.lastSlide === 2) {
+      const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
+      const t2 = gsap.timeline({ defaults: { duration: 0.25 } })
+
+      t1.to('#about-header', { opacity: 0, y: -100 })
+        .to('#about-article', {
+          opacity: 0,
+          x: -50
+        })
+        .then(afterT1)
+
+      t2.to('#tech-stack-header', { opacity: 0, y: -100 })
+        .to('#tech-stack-row-0', { opacity: 0, x: 100 })
+        .to('#tech-stack-row-1', { opacity: 0, x: 100 })
+        .to('#tech-stack-row-2', { opacity: 0, x: 100 })
+        .to('#tech-stack-row-3', { opacity: 0, x: 100 })
+        .to('#tech-stack-button', { opacity: 0, y: 50 })
+        .then(afterT2)
     }
   }, [state.currentSlide])
 

@@ -148,6 +148,7 @@ export const ProjectTimeLine = styled.span`
   top: 12px;
   height: calc(100% + 44px);
   display: none;
+  transform-origin: top;
 
   @media (min-width: 1400px) {
     display: block;
