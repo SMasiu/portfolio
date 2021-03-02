@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   ContactContent,
   ContactDataWrapper,
@@ -25,6 +25,8 @@ import GithubIcon from '@icons/github.svg'
 import { useSliderState } from '@global-state/slider-store'
 import { useWheel } from '@hooks/use-wheel'
 import { handleWheel } from '@common/handle-wheel'
+import gsap from 'gsap'
+import { afterSlideOut } from '@common/animation'
 
 const contact = [
   {
@@ -64,18 +66,54 @@ export const Contact: React.FC<ContactProps> = ({ sliderWrapper }) => {
 
   useWheel(handleWheel(4, state, dispatch, scrollTicks, setScrolledTicks, sliderWrapper))
 
+  useEffect(() => {
+    if (!state.disableSlide) {
+      if (state.currentSlide === 4) {
+        const t1 = gsap.timeline({ defaults: { duration: 0.5 } })
+        t1.delay(2)
+          .fromTo('#contact-header', { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
+          .fromTo('#contact-item-0', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+          .fromTo('#contact-item-1', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+          .fromTo('#contact-item-2', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+          .fromTo('#contact-item-3', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+          .fromTo('#contact-item-4', { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
+          .fromTo('#contact-watermark', { opacity: 0, scale: 0 }, { opacity: 0.1, scale: 1 })
+      } else {
+        const t1 = gsap.timeline({ defaults: { duration: 0.2 } })
+        t1.to('#contact-watermark', { opacity: 0, scale: 0.5 })
+          .to('#contact-item-4', { opacity: 0, x: -50 })
+          .to('#contact-item-3', { opacity: 0, x: -50 })
+          .to('#contact-item-2', { opacity: 0, x: -50 })
+          .to('#contact-item-1', { opacity: 0, x: -50 })
+          .to('#contact-item-0', { opacity: 0, x: -50 })
+          .to('#contact-header', { opacity: 0, y: -100 })
+          .then(
+            afterSlideOut([
+              '#contact-watermark',
+              '#contact-item-4',
+              '#contact-item-3',
+              '#contact-item-2',
+              '#contact-item-1',
+              '#contact-item-0',
+              '#contact-header'
+            ])
+          )
+      }
+    }
+  }, [state.currentSlide])
+
   return (
     <ContactWrapper>
-      <Watermark>Contact</Watermark>
+      <Watermark id="contact-watermark">Contact</Watermark>
       <ContactContent>
         <ContactInnerWrapper>
           <ContactDataWrapper>
-            <ContactHeader>
+            <ContactHeader id="contact-header">
               <ContactHeading>Contact</ContactHeading>
             </ContactHeader>
             <ContactItemsWrapper>
               {contact.map(({ icon, label, value }, i) => (
-                <ContactItem key={i}>
+                <ContactItem key={i} id={`contact-item-${i}`}>
                   <ContactLabelWrapper>
                     <ContactIconWrapper>{icon}</ContactIconWrapper>
                     <ContactLabel>{label}</ContactLabel>

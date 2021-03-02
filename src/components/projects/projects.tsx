@@ -33,7 +33,7 @@ const projects: ProjectType[] = [
     watermark: '/projects/statistics.svg'
   },
   {
-    name: 'My Covid',
+    name: 'My Covid2',
     date: new Date(),
     about: `
         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -47,7 +47,7 @@ const projects: ProjectType[] = [
     watermark: '/projects/statistics.svg'
   },
   {
-    name: 'My Covid',
+    name: 'My Covid3',
     date: new Date(),
     about: `
         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
