@@ -127,7 +127,7 @@ export const AboutIllustrationWrapper = styled.figure`
     bottom: auto;
     width: 650px;
     transform: scaleX(-1) translate(50%, -50%);
-    left: 40%;
+    left: 42.5%;
     top: 50%;
   }
 
