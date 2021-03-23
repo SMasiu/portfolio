@@ -38,7 +38,7 @@ export const PageSlider = () => {
     }
   })
 
-  const slideTo = (slide: number) => {
+  const slideTo = (slide: number): void => {
     if (!state.preventSlide) {
       dispatch({ type: SliderActions.PREVENT_SLIDE })
       const slides = ['#hero-content', '#about-content', '#projects-content', '#contact-content']
@@ -58,7 +58,7 @@ export const PageSlider = () => {
     }
   }
 
-  const handleChangeSlide = (slide: number) => {
+  const handleChangeSlide = (slide: number): void => {
     if (slide >= 0 && slide <= slidesCount) {
       dispatch({ type: SliderActions.SET_SLIDE, payload: { currentSlide: slide } })
       slideTo(slide)
@@ -70,22 +70,22 @@ export const PageSlider = () => {
       <PageOverlay slide={currentSlide} onPageChange={handleChangeSlide} />
       <PageSlides>
         <HeroContent id="hero-content">
-          <SliderContent>
-            <Hero />
+          <SliderContent pageIndex={1} onPageChange={handleChangeSlide}>
+            <Hero onPageChange={handleChangeSlide} />
           </SliderContent>
         </HeroContent>
         <AboutContent id="about-content">
-          <SliderContent>
+          <SliderContent pageIndex={2} onPageChange={handleChangeSlide}>
             <About />
           </SliderContent>
         </AboutContent>
         <ProjectsContent id="projects-content">
-          <SliderContent>
+          <SliderContent pageIndex={3} onPageChange={handleChangeSlide}>
             <Projects />
           </SliderContent>
         </ProjectsContent>
         <ContactWrapper id="contact-content">
-          <SliderContent>
+          <SliderContent pageIndex={4} onPageChange={handleChangeSlide}>
             <Contact />
           </SliderContent>
         </ContactWrapper>

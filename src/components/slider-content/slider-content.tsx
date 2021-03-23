@@ -7,12 +7,21 @@ import {
   SliderMainWrapper
 } from './slider-content.style'
 
-export const SliderContent: React.FC = ({ children }) => (
+export interface SliderContentProps {
+  pageIndex: number
+  onPageChange: (slide: number) => void
+}
+
+export const SliderContent: React.FC<SliderContentProps> = ({
+  pageIndex,
+  onPageChange,
+  children
+}) => (
   <SliderContentWrapper>
     <SliderMainWrapper>{children}</SliderMainWrapper>
     <SliderFooter>
       <SliderLegendWrapper>
-        <SliderLegend />
+        <SliderLegend pageIndex={pageIndex} onPageChange={onPageChange} />
       </SliderLegendWrapper>
     </SliderFooter>
   </SliderContentWrapper>

@@ -1,4 +1,4 @@
-import { mediaTheme } from '@styles/theme'
+import { colorTheme, mediaTheme } from '@styles/theme'
 import styled from 'styled-components'
 
 export const ContactWrapper = styled.section`
@@ -65,8 +65,13 @@ export const ContactItemsWrapper = styled.address`
 
 export const ContactItem = styled.section`
   &:not(:last-child) {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
+`
+
+export const ContactLink = styled.a`
+  color: ${colorTheme.secondary200};
+  text-decoration: none;
 `
 
 export const ContactLabelWrapper = styled.section`

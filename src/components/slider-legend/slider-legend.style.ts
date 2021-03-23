@@ -12,6 +12,7 @@ export const LegendItem = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
+  cursor: pointer;
 
   ${() => css`
     &:last-child ${Connector} {

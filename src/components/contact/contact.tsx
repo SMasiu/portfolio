@@ -13,6 +13,7 @@ import {
   ContactItemsWrapper,
   ContactLabel,
   ContactLabelWrapper,
+  ContactLink,
   ContactValue,
   ContactWrapper,
   Watermark
@@ -28,7 +29,14 @@ import { handleWheel } from '@common/handle-wheel'
 import gsap from 'gsap'
 import { afterSlideOut } from '@common/animation'
 
-const contact = [
+export interface ContactItem {
+  label: string
+  value: string
+  icon: JSX.Element
+  link?: string
+}
+
+const contact: ContactItem[] = [
   {
     label: 'Email',
     value: 'szymon.masko32@gmail.com',
@@ -47,14 +55,19 @@ const contact = [
   {
     label: 'GitHub',
     value: '',
-    icon: <GithubIcon />
+    icon: <GithubIcon />,
+    link: 'https://www.linkedin.com/in/szymon-ma%C5%9Bko-763b22196'
   },
   {
     label: 'LinkedIn',
     value: '',
-    icon: <LinkedInIcon />
+    icon: <LinkedInIcon />,
+    link: 'https://github.com/SMasiu'
   }
 ]
+
+const ConditionalWrapper = ({ condition, wrapper, children }) =>
+  condition ? wrapper({ children }) : children
 
 export const Contact: React.FC = () => {
   const [scrollTicks, setScrolledTicks] = useState(0)
@@ -104,6 +117,27 @@ export const Contact: React.FC = () => {
     }
   }, [state.currentSlide])
 
+  const createContactItem = ({ icon, label, value, link }: ContactItem, i: number) => {
+    return (
+      <ContactItem key={i} id={`contact-item-${i}`}>
+        <ConditionalWrapper
+          condition={link}
+          wrapper={({ children }) => (
+            <ContactLink target="_blank" rel="noreferrer" href={link}>
+              {children}
+            </ContactLink>
+          )}
+        >
+          <ContactLabelWrapper>
+            <ContactIconWrapper>{icon}</ContactIconWrapper>
+            <ContactLabel>{label}</ContactLabel>
+          </ContactLabelWrapper>
+          {value && <ContactValue>{value}</ContactValue>}
+        </ConditionalWrapper>
+      </ContactItem>
+    )
+  }
+
   return (
     <ContactWrapper>
       <Watermark id="contact-watermark">Contact</Watermark>
@@ -113,20 +147,10 @@ export const Contact: React.FC = () => {
             <ContactHeader id="contact-header">
               <ContactHeading>Contact</ContactHeading>
             </ContactHeader>
-            <ContactItemsWrapper>
-              {contact.map(({ icon, label, value }, i) => (
-                <ContactItem key={i} id={`contact-item-${i}`}>
-                  <ContactLabelWrapper>
-                    <ContactIconWrapper>{icon}</ContactIconWrapper>
-                    <ContactLabel>{label}</ContactLabel>
-                  </ContactLabelWrapper>
-                  {value && <ContactValue>{value}</ContactValue>}
-                </ContactItem>
-              ))}
-            </ContactItemsWrapper>
+            <ContactItemsWrapper>{contact.map(createContactItem)}</ContactItemsWrapper>
           </ContactDataWrapper>
           <ContactIllustrationWrapper>
-            <ContactIllustration src="undraw_delivery_address_03n0.svg" />
+            <ContactIllustration src="undraw_delivery_address_03n0.svg" alt="Contact" />
           </ContactIllustrationWrapper>
         </ContactInnerWrapper>
       </ContactContent>

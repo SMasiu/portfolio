@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { colorTheme, fontFamilyTheme, mediaTheme } from './theme'
+import { colorTheme, fontFamilyTheme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     background-color: ${colorTheme.primary100};
     color: ${colorTheme.secondary100};

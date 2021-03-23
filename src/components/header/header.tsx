@@ -22,13 +22,14 @@ import { Hamburger } from '@components/hamburger/hamburger'
 interface NavigationOption {
   name: string
   slide: number
+  elementId: string
 }
 
 const navigationOptions: NavigationOption[] = [
-  { name: 'Home', slide: 1 },
-  { name: 'About', slide: 2 },
-  { name: 'Projects', slide: 3 },
-  { name: 'Contact', slide: 4 }
+  { name: 'Home', slide: 1, elementId: '#hero-content' },
+  { name: 'About', slide: 2, elementId: '#about-content' },
+  { name: 'Projects', slide: 3, elementId: '#projects-content' },
+  { name: 'Contact', slide: 4, elementId: '#contact-content' }
 ]
 
 export const Header = () => {
@@ -36,8 +37,13 @@ export const Header = () => {
   const [openNav, setOpenNav] = useState(false)
 
   const handleNavigationClick = (slide: number) => {
-    if (slide !== state.currentSlide) {
-      dispatch({ type: SliderActions.SET_SLIDE, payload: { currentSlide: slide } })
+    if (!state.disableSlide) {
+      if (slide !== state.currentSlide) {
+        dispatch({ type: SliderActions.SET_SLIDE, payload: { currentSlide: slide } })
+      }
+    } else {
+      setOpenNav(false)
+      document.querySelector(navigationOptions[slide - 1].elementId).scrollIntoView()
     }
   }
 
@@ -55,12 +61,22 @@ export const Header = () => {
         </Nav>
         <SocialWrapper>
           <Address>
-            <Email href="mailto:szymon.masko32@gmail.com">szymon.masko32@gmail.com</Email>
+            <Email>szymon.masko32@gmail.com</Email>
           </Address>
-          <SocialLink to="">
+          <SocialLink
+            aria-label="Check out my LinkedIn profile"
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/szymon-ma%C5%9Bko-763b22196"
+          >
             <LinkedInIcon />
           </SocialLink>
-          <SocialLink to="">
+          <SocialLink
+            aria-label="Check out my Github profile"
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/SMasiu"
+          >
             <GithubIcon />
           </SocialLink>
         </SocialWrapper>

@@ -28,7 +28,6 @@ import {
   ProjectPreview,
   ProjectImageWrapper,
   ProjectImage,
-  Watermark,
   AboutMoreInfoWrapper
 } from './project.style'
 import { ProjectType } from '../../types/project.type'
@@ -126,7 +125,6 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
 
   return (
     <ProjectWrapper>
-      {/* <Watermark src={project.watermark} /> */}
       <ProjectContainer ref={targetRef}>
         <TimelineDate>
           <DateText id={createId('date-text')}>{project.date.toLocaleDateString()}</DateText>
@@ -147,7 +145,7 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
                 <ProjectContentHeading>Used technologies</ProjectContentHeading>
                 {project.techStack.map(({ name, logo }, i) => (
                   <TechStackItem key={i}>
-                    <TechStackImg src={logo} />
+                    <TechStackImg src={logo} alt={name} />
                     <TechStackName>{name}</TechStackName>
                   </TechStackItem>
                 ))}
@@ -155,9 +153,9 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
               <LinksWrapper id={createId('links')}>
                 <ProjectContentHeading>Links</ProjectContentHeading>
                 {project.links.map(({ name, icon, url }, i) => (
-                  <LinkItem key={i}>
+                  <LinkItem key={i} href={url}>
                     <LinkDescription>
-                      <LinkIcon src={icon}></LinkIcon>
+                      <LinkIcon src={icon} alt={'link'}></LinkIcon>
                       <LinkName>{name}</LinkName>
                       <LinkDivider />
                       <LinkUrl>{url}</LinkUrl>
@@ -169,7 +167,7 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
           </ProjectDescription>
           <ProjectPreview>
             <ProjectImageWrapper id={createId('image')}>
-              <ProjectImage src={project.image} />
+              <ProjectImage src={project.image} alt="Project preview" />
             </ProjectImageWrapper>
           </ProjectPreview>
         </ProjectContent>

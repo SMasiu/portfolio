@@ -1,18 +1,9 @@
 import { techStackItems } from '@common/tech-stack'
 import { ProjectType } from '../../types/project.type'
 import * as React from 'react'
-import { useState, useEffect } from 'react'
-import {
-  Code,
-  CodeDivider,
-  CodeInputs,
-  CodeLabel,
-  ProjectContent,
-  ProjectsFooter,
-  ProjectsWrapper
-} from './projects.style'
+import { useState } from 'react'
+import { ProjectContent, ProjectsWrapper } from './projects.style'
 import { Project } from '@components/project/project'
-import { Input } from '@components/input/input'
 import { useSliderState } from '@global-state/slider-store'
 import { useWheel } from '@hooks/use-wheel'
 import { handleWheel } from '@common/handle-wheel'
@@ -75,18 +66,6 @@ export const Projects: React.FC = () => {
           <Project project={project} key={i} />
         ))}
       </ProjectContent>
-      {/* <ProjectsFooter>
-        <Code>
-          <CodeLabel>Code</CodeLabel>
-          <CodeInputs>
-            <Input />
-            <CodeDivider />
-            <Input />
-            <CodeDivider />
-            <Input />
-          </CodeInputs>
-        </Code>
-      </ProjectsFooter> */}
     </ProjectsWrapper>
   )
 }

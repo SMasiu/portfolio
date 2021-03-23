@@ -31,6 +31,7 @@ export const changeSlideArrowWrapper = css`
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  cursor: pointer;
 `
 
 export const PreviousWrapper = styled.section`

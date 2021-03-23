@@ -1,5 +1,4 @@
 import { colorTheme, mediaTheme } from '@styles/theme'
-import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import LinkedIn from '@icons/linked-in.svg'
 import Github from '@icons/github.svg'
@@ -44,6 +43,7 @@ export const Nav = styled.nav<NavProps>`
     left: 100%;
     transition: transform 0.3s;
     will-change: transform;
+    background: linear-gradient(135deg, rgba(232, 203, 192, 1) 0%, rgba(99, 111, 164, 1) 100%);
     ${({ open }) => css`
       transform: translateX(${open ? '-100%' : '0'});
     `}
@@ -62,9 +62,12 @@ export const NavList = styled.ul`
 
 export const ListItem = styled.li`
   padding: 35px 25px;
+  cursor: pointer;
+  font-size: 16px;
 
   @media (max-width: ${mediaTheme.sm}) {
     width: 100%;
+    font-size: 24px;
   }
 `
 
@@ -79,7 +82,7 @@ export const SocialWrapper = styled.nav`
   align-items: center;
 `
 
-export const SocialLink = styled(Link)`
+export const SocialLink = styled.a`
   display: block;
   padding: 25px 10px;
 `
@@ -104,7 +107,7 @@ export const Address = styled.address`
   }
 `
 
-export const Email = styled.a`
+export const Email = styled.p`
   display: block;
   padding: 35px 10px 35px 0;
   color: ${colorTheme.secondary200};

@@ -54,7 +54,11 @@ const reviews = [
   }
 ]
 
-export const Hero: React.FC = () => {
+export interface HeroProps {
+  onPageChange: (slide: number) => void
+}
+
+export const Hero: React.FC<HeroProps> = ({ onPageChange }) => {
   const [scrollTicks, setScrolledTicks] = useState(0)
   const { state, dispatch } = useSliderState()
   const [loadedPage, setLoadedPage] = useState(false)
@@ -173,7 +177,7 @@ export const Hero: React.FC = () => {
               necessitatibus pariatur adipisci explicabo cumque eos quos alias commodi quibusdam
               vel.
             </HeroAbout>
-            <Button>View more</Button>
+            <Button onClick={() => onPageChange(2)}>View more</Button>
           </div>
         </HeroAboutArticle>
         <HeroProductSection>
@@ -202,10 +206,10 @@ export const Hero: React.FC = () => {
               {reviews.map(({ profileUrl, fakeText, rate }, i) => (
                 <Review key={i} id={`hero-review-${i}`}>
                   <ReviewHeader>
-                    <ReviewProfile src={profileUrl}></ReviewProfile>
+                    <ReviewProfile alt="Profile" src={profileUrl}></ReviewProfile>
                     <ReviewStarsWrapper>
                       {generateStars(rate).map((url, i) => (
-                        <ReviewStar src={url} key={i}></ReviewStar>
+                        <ReviewStar alt="star" src={url} key={i}></ReviewStar>
                       ))}
                     </ReviewStarsWrapper>
                   </ReviewHeader>

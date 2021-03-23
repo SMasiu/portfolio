@@ -1,4 +1,3 @@
-import { Button } from '@components/button/button'
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import {
@@ -12,7 +11,6 @@ import {
   TechStackContent,
   TechStackItem,
   TechStackLogo,
-  TechStackFooter,
   AboutIllustrationWrapper,
   TechStackNeuron,
   TechStackLayers
@@ -55,8 +53,7 @@ export const About: React.FC = () => {
       '#tech-stack-row-0',
       '#tech-stack-row-1',
       '#tech-stack-row-2',
-      '#tech-stack-row-3',
-      '#tech-stack-button'
+      '#tech-stack-row-3'
     ])
 
     if (state.currentSlide === 2) {
@@ -74,7 +71,6 @@ export const About: React.FC = () => {
         .fromTo('#tech-stack-row-1', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
         .fromTo('#tech-stack-row-2', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
         .fromTo('#tech-stack-row-3', { opacity: 0, x: 100 }, { opacity: 1, x: 0 })
-        .fromTo('#tech-stack-button', { opacity: 0, y: 50 }, { opacity: 1, y: 0 })
         .then(() => {
           setIsAnimating(false)
         })
@@ -94,7 +90,6 @@ export const About: React.FC = () => {
         .to('#tech-stack-row-1', { opacity: 0, x: 100 })
         .to('#tech-stack-row-2', { opacity: 0, x: 100 })
         .to('#tech-stack-row-3', { opacity: 0, x: 100 })
-        .to('#tech-stack-button', { opacity: 0, y: 50 })
         .then(afterT2)
     }
   }, [state.currentSlide])
@@ -130,19 +125,15 @@ export const About: React.FC = () => {
             <TechStackLayers>
               {techStack.map((items, i) => (
                 <TechStackContent key={i} id={`tech-stack-row-${i}`}>
-                  {items.map(({ logo }, j) => (
+                  {items.map(({ logo, name }, j) => (
                     <TechStackItem key={j}>
-                      <TechStackLogo src={logo}></TechStackLogo>
+                      <TechStackLogo alt={name} src={logo}></TechStackLogo>
                     </TechStackItem>
                   ))}
                 </TechStackContent>
               ))}
             </TechStackLayers>
           </TechStackNeuron>
-          <TechStackFooter>
-            {/* <Button>Play</Button> */}
-            <Button id="tech-stack-button">View full list</Button>
-          </TechStackFooter>
         </TechStackWrapper>
       </AboutContent>
     </AboutWrapper>

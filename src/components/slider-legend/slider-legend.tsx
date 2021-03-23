@@ -1,3 +1,4 @@
+import { sliderLegend } from '@common/legend'
 import * as React from 'react'
 import {
   Connector,
@@ -7,15 +8,18 @@ import {
   SliderLegendWrapper
 } from './slider-legend.style'
 
-const legend = [{ name: 'Home' }, { name: 'About' }, { name: 'Projects' }, { name: 'Contact' }]
+export interface SliderLegendProps {
+  pageIndex: number
+  onPageChange: (slide: number) => void
+}
 
-export const SliderLegend = () => (
+export const SliderLegend: React.FC<SliderLegendProps> = ({ pageIndex, onPageChange }) => (
   <SliderLegendWrapper>
-    {legend.map(({ name }, i) => (
-      <LegendItem key={i}>
+    {sliderLegend.map(({ name }, i) => (
+      <LegendItem key={i} onClick={() => onPageChange(i + 1)}>
         <LegendItemText>{name}</LegendItemText>
         <LegendBreakPoint />
-        <Connector visited={i === 0} />
+        <Connector visited={pageIndex > i + 1} />
       </LegendItem>
     ))}
   </SliderLegendWrapper>

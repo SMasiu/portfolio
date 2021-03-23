@@ -107,7 +107,10 @@ export const TechStackName = styled.p``
 
 export const LinksWrapper = styled.section``
 
-export const LinkItem = styled.a``
+export const LinkItem = styled.a`
+  color: ${colorTheme.secondary200};
+  text-decoration: none;
+`
 
 export const LinkDescription = styled.section`
   display: flex;
