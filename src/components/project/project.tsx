@@ -151,9 +151,11 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
                 ))}
               </UsedTechStack>
               <LinksWrapper id={createId('links')}>
-                <ProjectContentHeading>Links</ProjectContentHeading>
+                {(project.links.length ? true : false) && (
+                  <ProjectContentHeading>Links</ProjectContentHeading>
+                )}
                 {project.links.map(({ name, icon, url }, i) => (
-                  <LinkItem key={i} href={url}>
+                  <LinkItem key={i} target="_blank" href={url} rel="noreferrer">
                     <LinkDescription>
                       <LinkIcon src={icon} alt={'link'}></LinkIcon>
                       <LinkName>{name}</LinkName>

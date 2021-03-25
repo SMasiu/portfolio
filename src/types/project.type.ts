@@ -13,5 +13,4 @@ export interface ProjectType {
   techStack: TechStackType[]
   links: ProjectLink[]
   image: string
-  watermark: string
 }

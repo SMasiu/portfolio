@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 
 export const ProjectWrapper = styled.section`
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 90%;
   max-width: 1400px;
@@ -26,12 +25,14 @@ export const ProjectWrapper = styled.section`
 
   @media (min-width: 1400px) {
     height: calc(100vh - 61px);
-    padding: 0 100px 0 200px;
+    min-height: 600px;
+    padding: 200px 100px 0 200px;
     margin-bottom: 0;
   }
 
   @media (min-width: 1600px) {
     min-width: 1500px;
+    padding: 250px 100px 0 200px;
   }
 `
 
@@ -110,6 +111,11 @@ export const LinksWrapper = styled.section``
 export const LinkItem = styled.a`
   color: ${colorTheme.secondary200};
   text-decoration: none;
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
 `
 
 export const LinkDescription = styled.section`
@@ -133,7 +139,9 @@ export const LinkDivider = styled.span`
   margin: 0 15px;
 `
 
-export const LinkUrl = styled.p``
+export const LinkUrl = styled.p`
+  word-break: break-all;
+`
 
 export const ProjectPreview = styled.section``
 
@@ -156,6 +164,7 @@ export const ProjectTimeLine = styled.span`
   @media (min-width: 1400px) {
     display: block;
     height: calc(100vh - 68px);
+    min-height: 592px;
     left: -50px;
   }
 `
