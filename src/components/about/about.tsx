@@ -102,31 +102,31 @@ export const About: React.FC = () => {
       <AboutContent>
         <AboutArticle>
           <AboutHeader id="about-header">
-            <AboutHeading>About me</AboutHeading>
+            <AboutHeading>O mnie</AboutHeading>
           </AboutHeader>
           <div id="about-article">
             <AboutText>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolor dolorum
-              temporibus ipsum veniam tempore nisi minima laborum, maiores iste deleniti labore hic
-              voluptatibus vel?
+              Cztery lata temu zacząłem swoją przygodę z programowaniem codziennie rozwijając swoje
+              umiejętności. W tym czasie stworzyłem wiele projektów ucząc się na własnych błędach.
+              Nadal planuje pogłębiać swoją wiedzę oraz rozwijać się w branży IT.
             </AboutText>
             <AboutText>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolor dolorum
-              temporibus ipsum veniam tempore nisi minima laborum, maiores iste deleniti labore hic
-              voluptatibus vel?
+              W każdy projekt wkładam wszelkie starania aby jego końcowa wersja była jak najlepsza.
+              Cenię sobie czystość, czytelność, a przede wszystkim jakość kodu. Codziennie uczę się
+              nowych rzeczy tak aby być na bieżąco z coraz to nowszymi technologiami.
             </AboutText>
           </div>
         </AboutArticle>
         <TechStackWrapper>
           <AboutHeader id="tech-stack-header">
-            <AboutHeading>Tech stack</AboutHeading>
+            <AboutHeading>Czego używam</AboutHeading>
           </AboutHeader>
           <TechStackNeuron>
             <TechStackLayers>
               {techStack.map((items, i) => (
                 <TechStackContent key={i} id={`tech-stack-row-${i}`}>
                   {items.map(({ logo, name }, j) => (
-                    <TechStackItem key={j}>
+                    <TechStackItem key={j} title={name}>
                       <TechStackLogo alt={name} src={logo}></TechStackLogo>
                     </TechStackItem>
                   ))}

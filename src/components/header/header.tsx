@@ -26,10 +26,10 @@ interface NavigationOption {
 }
 
 const navigationOptions: NavigationOption[] = [
-  { name: 'Home', slide: 1, elementId: '#hero-content' },
-  { name: 'About', slide: 2, elementId: '#about-content' },
-  { name: 'Projects', slide: 3, elementId: '#projects-content' },
-  { name: 'Contact', slide: 4, elementId: '#contact-content' }
+  { name: 'Start', slide: 1, elementId: '#hero-content' },
+  { name: 'O mnie', slide: 2, elementId: '#about-content' },
+  { name: 'Projekty', slide: 3, elementId: '#projects-content' },
+  { name: 'Kontakt', slide: 4, elementId: '#contact-content' }
 ]
 
 export const Header = () => {

@@ -40,7 +40,7 @@ const projects: ProjectType[] = [
       techStackItems.postgresql,
       techStackItems.ts
     ],
-    links: [{ name: 'Code', icon: 'github.svg', url: 'https://github.com/SMasiu/language_app_v2' }],
+    links: [{ name: 'Kod', icon: 'github.svg', url: 'https://github.com/SMasiu/language_app_v2' }],
     image: 'projects/language-app-1.png'
   },
   {
@@ -60,12 +60,12 @@ const projects: ProjectType[] = [
     ],
     links: [
       {
-        name: 'Code',
+        name: 'Kod',
         icon: 'github.svg',
         url: 'https://github.com/SMasiu/project-manager-backend'
       },
       {
-        name: 'Code',
+        name: 'Kod',
         icon: 'github.svg',
         url: 'https://github.com/SMasiu/project-manager-frontend'
       }
@@ -82,7 +82,7 @@ const projects: ProjectType[] = [
     `,
     techStack: [techStackItems.js, techStackItems.ts],
     links: [
-      { name: 'Code', icon: 'github.svg', url: 'https://github.com/SMasiu/GraphJS' },
+      { name: 'Kod', icon: 'github.svg', url: 'https://github.com/SMasiu/GraphJS' },
       { name: 'Npm', icon: 'npm.svg', url: 'https://www.npmjs.com/package/web-graphs' }
     ],
     image: 'projects/web-graphs-1.png'

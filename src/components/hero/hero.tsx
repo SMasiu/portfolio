@@ -173,11 +173,11 @@ export const Hero: React.FC<HeroProps> = ({ onPageChange }) => {
           </HeroHeader>
           <div id="hero-article">
             <HeroAbout>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum
-              necessitatibus pariatur adipisci explicabo cumque eos quos alias commodi quibusdam
-              vel.
+              Cztery lata temu zacząłem swoją przygodę z programowaniem codziennie rozwijając swoje
+              umiejętności. W tym czasie stworzyłem wiele projektów ucząc się na własnych błędach.
+              Nadal planuje pogłębiać swoją wiedzę oraz rozwijać się w branży IT.
             </HeroAbout>
-            <Button onClick={() => onPageChange(2)}>View more</Button>
+            <Button onClick={() => onPageChange(2)}>Czytaj więcej</Button>
           </div>
         </HeroAboutArticle>
         <HeroProductSection>

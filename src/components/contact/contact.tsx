@@ -43,12 +43,12 @@ const contact: ContactItem[] = [
     icon: <EmailIcon />
   },
   {
-    label: 'Phone',
+    label: 'Telefon',
     value: '+48 506 979 491',
     icon: <PhoneIcon />
   },
   {
-    label: 'Location',
+    label: 'Lokalizacja',
     value: 'Poland, Gliwice',
     icon: <PinIcon />
   },
@@ -140,12 +140,12 @@ export const Contact: React.FC = () => {
 
   return (
     <ContactWrapper>
-      <Watermark id="contact-watermark">Contact</Watermark>
+      <Watermark id="contact-watermark">Kontakt</Watermark>
       <ContactContent>
         <ContactInnerWrapper>
           <ContactDataWrapper>
             <ContactHeader id="contact-header">
-              <ContactHeading>Contact</ContactHeading>
+              <ContactHeading>Kontakt</ContactHeading>
             </ContactHeader>
             <ContactItemsWrapper>{contact.map(createContactItem)}</ContactItemsWrapper>
           </ContactDataWrapper>

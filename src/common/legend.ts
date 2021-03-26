@@ -1,6 +1,6 @@
 export const sliderLegend = [
-  { name: 'Home' },
-  { name: 'About' },
-  { name: 'Projects' },
-  { name: 'Contact' }
+  { name: 'Start' },
+  { name: 'O mnie' },
+  { name: 'Projekty' },
+  { name: 'Kontakt' }
 ]

@@ -137,12 +137,12 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
         <ProjectContent>
           <ProjectDescription>
             <AboutProject id={createId('about')}>
-              <ProjectContentHeading>About project</ProjectContentHeading>
+              <ProjectContentHeading>O projekcie</ProjectContentHeading>
               <AboutText>{project.about}</AboutText>
             </AboutProject>
             <AboutMoreInfoWrapper>
               <UsedTechStack id={createId('tech')}>
-                <ProjectContentHeading>Used technologies</ProjectContentHeading>
+                <ProjectContentHeading>Użyte technologie</ProjectContentHeading>
                 {project.techStack.map(({ name, logo }, i) => (
                   <TechStackItem key={i}>
                     <TechStackImg src={logo} alt={name} />
@@ -152,7 +152,7 @@ export const Project: React.FC<ProjectWrapperProps> = ({ project }) => {
               </UsedTechStack>
               <LinksWrapper id={createId('links')}>
                 {(project.links.length ? true : false) && (
-                  <ProjectContentHeading>Links</ProjectContentHeading>
+                  <ProjectContentHeading>Linki</ProjectContentHeading>
                 )}
                 {project.links.map(({ name, icon, url }, i) => (
                   <LinkItem key={i} target="_blank" href={url} rel="noreferrer">
